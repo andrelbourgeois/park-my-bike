@@ -7,6 +7,7 @@ This project is the final submission for CASA0018 (Deep Learning for Sensor Netw
 - My final report can be found in the folder titled report.
 - The code for this project can be found in the doler titled code.
 - A project demonstration can be found at this link.
+- Licensing information can be found in LICENSE.md
 
 ## Installation
 x
