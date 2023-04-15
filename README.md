@@ -25,9 +25,6 @@ We welcome contributions to this project! To contribute, please follow these ste
 ## License
 This project is licensed under the MIT License.
 
-## Contact
-If you have any questions or feedback, you can contact me @
-
 ## FAQ
 Q: How accurate is the model?
 A: The model was trained on a custom dataset of bicycle images and has an accuracy of approximately 85%.
