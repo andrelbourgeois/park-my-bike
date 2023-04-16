@@ -7,6 +7,7 @@ This project details a study undertaken to understand whether a camera placed at
 
 The motivation for this project is twofold. As a cyclist myself, my friends and I understand the difficulty with locating bicycle parking in a large city. There are many available spaces throughout the city, but they can be difficult to find and are often filled at popular locations. Having the ability to both locate traditional bicycle bays and know whether they have available parking spaces would significantly reduce the friction associated with cycling to new destinations in London.
 Additionally, a similar system is already in use by London's self-service bike-sharing scheme, Santander Cycles. Although this scheme is enabled through a system of docking stations throughout the city instead of computer vision, the end result is the same - live data pushed to your favourite wayfinding app that shows a cyclist the location and availability of bicycles or parking at the Santander Cycle stations throughout the city. This feature is shown, below, in Figure 1.
+
 ![santander-ex](https://user-images.githubusercontent.com/33913141/232324525-efa49797-fa02-4039-96cb-835080c791ce.png)
 
 Figure 1 - Example of Santander Bicycle Sharing Stations on Google Maps
@@ -20,7 +21,16 @@ Thinking back to the various application diagrams you have seen through the modu
 Tip: probably ~200 words and a diagram is usually good to convey your design!
 
 ## Data
-Describe what data sources you have used and any cleaning, wrangling or organising you have done. Including some examples of the data helps others understand what you have been working with.
+The data utilised for this project combined open-source, online images and a dataset of custom images taken around London, UK.
+
+The online images were retrieved in a single dataset from images.cv - a website offering open-source, labelled image datasets. This [dataset](https://images.cv/dataset/bicycle-image-classification-dataset) contained 705 images of bicycles, bike-related objects, and images that could be labelled as bicycle, such as bicycle kicks and bicycle playing cards. The website provides the ability to download this dataset in a range of sizes, with options for colour. It also provides the option to divide the images into folders for training, validation, and testing. With these features and after some pruning of images I didn't believe to be useful, I was left with 593, greyscaled images at a size of 256px x 256px. An example image can be seen below in Figure x.
+
+![gray-2WZF8BLTOBMY](https://user-images.githubusercontent.com/33913141/232325511-8c5b96da-0467-4f46-a7d1-f5ee82f54ce9.jpg)
+
+Figure x - Example Image from Image.cv Dataset
+
+The custom images were taken by myself, over the course of two weeks throughout my daily commutes in London.
+
 
 Tip: probably ~200 words and images of what the data 'looks like' are good!
 ![tiled-example](https://user-images.githubusercontent.com/33913141/232324282-30d0cb55-f5c5-4c52-8720-3200d6f13e4d.png)
