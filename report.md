@@ -37,13 +37,14 @@ The custom images were taken by myself, over the course of two weeks throughout 
 
 
 Tip: probably ~200 words and images of what the data 'looks like' are good!
-![tiled-example](https://user-images.githubusercontent.com/33913141/232324282-30d0cb55-f5c5-4c52-8720-3200d6f13e4d.png)
+
+![tiled-example](https://user-images.githubusercontent.com/33913141/232334533-8a2e1d93-8ed5-45de-9826-ba791d9a05dd.png)
+
 
 Figure x - Example of Tiling Images to Increase Size of Dataset and Reduce Overfitting
 
 ## Model
-This is a Deep Learning project! What model architecture did you use? Did you try d![Uploading santander-ex.png…]()
-ifferent ones? Why did you choose the ones you did?
+This is a Deep Learning project! What model architecture did you use? Did you try different ones? Why did you choose the ones you did?
 
 Tip: probably ~200 words and a diagram is usually good to describe your model!
 
