@@ -9,6 +9,10 @@ This project is the final submission for CASA0018 (Deep Learning for Sensor Netw
 - A project demonstration can be found at this link.
 - Licensing information can be found in LICENSE.md.
 
+## Softwares Used
+- edge impulse
+- ImageMagick
+
 ## Installation
 x
 
@@ -16,7 +20,7 @@ x
 x
 
 ## Contributing
-We welcome contributions to this project! To contribute, please follow these steps:
+I welcome contributions to this project! To contribute, please follow these steps:
 
 - Fork this repository to your own GitHub account.
 - Create a new branch with your changes.
