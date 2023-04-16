@@ -5,7 +5,7 @@ Project: link to github repo with project work in / link to Edge Impulse project
 ## Introduction
 This project details a study undertaken to understand whether a camera placed at a bicycle bay could be used to remotely inform cyclists of available parking spaces at that bicycle bay. In order to accomplish this, a deep learning model was developed and trained to detect bicycles. The idea being, that if the number of bicycles can be accurately obtained at a specific bicycle bay and there is previous knowledge regarding the number of parking spaces at that bicycle bay, then the difference between these numbers is the number of available parking spaces. This number can then be pushed - along with the device's location - to a popular mapping application for public use. The aim of this project, however, is not the design of this entire system, but instead the design and deployment of this system’s deep learning capability. Figure 1, below, provides a more tangible idea of what this system might look like in practice.
 
-![park-my-bike-diagram](https://user-images.githubusercontent.com/33913141/232333416-7208ab9a-5735-424a-82e3-4ad93b537ce8.png)
+![park-my-bike-diagram](https://user-images.githubusercontent.com/33913141/232341366-51ec127c-757a-477a-b7ca-77f8858b443d.png)
 
 Figure 1 - Example of Park My Bike Deployment
 
@@ -35,7 +35,7 @@ Figure x - Example Image from Image.cv Dataset
 
 The custom images were taken by myself, over the course of two weeks throughout my daily commutes in London. These Images began as 3024px × 4032px coloured photos. In order to process them, I first recoloured them and cropped them into 3024px x 3024px squares. Next, I reduced their resolution to 1024px x 1024px using the [ImageMagick](https://imagemagick.org/index.php) app. Finally, I split each image into 16 separate images to increase the size of the dataset and get a good mix of images that contained bicycles and images with scenery around the bicycles. This process can be seen more clearly in Figure x, below.
 
-![tiled-example](https://user-images.githubusercontent.com/33913141/232334533-8a2e1d93-8ed5-45de-9826-ba791d9a05dd.png)
+![tiled-example](https://user-images.githubusercontent.com/33913141/232341346-e35a9ab2-1f36-45c1-84aa-d26142a5de61.png)
 
 Figure x - Example Image Processing for Custom Data
 
