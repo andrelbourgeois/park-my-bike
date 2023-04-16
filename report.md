@@ -1,5 +1,6 @@
 # PARK MY BIKE
 Author: André Bourgeois
+
 Project: Github Repository and Edge Impulse Repository (Add links)
 
 ## Introduction
