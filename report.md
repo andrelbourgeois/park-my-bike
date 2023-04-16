@@ -3,14 +3,17 @@ Author: André Bourgeois
 Project: link to github repo with project work in / link to Edge Impulse projects
 
 ## Introduction
-This project details a study undertaken to understand whether a camera placed at a bicycle bay could be used to remotely inform cyclists of available parking spaces at that bicycle bay. In order to accomplish this, a deep learning model was developed and trained to detect bicycles. The idea being, that if the number of bicycles can be accurately obtained at a specific bicycle bay and there is previous knowledge regarding the number of parking spaces at that bicycle bay, then the difference between these numbers is the number of available parking spaces. This number can then be pushed - along with the device's location - to a popular mapping application for public use. The aim of this project, however, is not the design of this entire system, but instead the design and deployment of this system’s deep learning capability.
+This project details a study undertaken to understand whether a camera placed at a bicycle bay could be used to remotely inform cyclists of available parking spaces at that bicycle bay. In order to accomplish this, a deep learning model was developed and trained to detect bicycles. The idea being, that if the number of bicycles can be accurately obtained at a specific bicycle bay and there is previous knowledge regarding the number of parking spaces at that bicycle bay, then the difference between these numbers is the number of available parking spaces. This number can then be pushed - along with the device's location - to a popular mapping application for public use. The aim of this project, however, is not the design of this entire system, but instead the design and deployment of this system’s deep learning capability. Figure 1, below, provides a more tangible idea of what this system might look like in practice.
+
+![park-my-bike-diagram](https://user-images.githubusercontent.com/33913141/232333202-e4452cc5-6b06-4aac-bc3e-39d0d948bbc2.png)
+
 
 The motivation for this project is twofold. As a cyclist myself, my friends and I understand the difficulty with locating bicycle parking in a large city. There are many available spaces throughout the city, but they can be difficult to find and are often filled at popular locations. Having the ability to both locate traditional bicycle bays and know whether they have available parking spaces would significantly reduce the friction associated with cycling to new destinations in London.
-Additionally, a similar system is already in use by London's self-service bike-sharing scheme, Santander Cycles. Although this scheme is enabled through a system of docking stations throughout the city instead of computer vision, the end result is the same - live data pushed to your favourite wayfinding app that shows a cyclist the location and availability of bicycles or parking at the Santander Cycle stations throughout the city. This feature is shown, below, in Figure 1.
+Additionally, a similar system is already in use by London's self-service bike-sharing scheme, Santander Cycles. Although this scheme is enabled through a system of docking stations throughout the city instead of computer vision, the end result is the same - live data pushed to your favourite wayfinding app that shows a cyclist the location and availability of bicycles or parking at the Santander Cycle stations throughout the city. This feature is shown, below, in Figure 2.
 
 ![santander-ex](https://user-images.githubusercontent.com/33913141/232324525-efa49797-fa02-4039-96cb-835080c791ce.png)
 
-Figure 1 - Example of Santander Bicycle Sharing Stations on Google Maps
+Figure 2 - Example of Santander Bicycle Sharing Stations on Google Maps
 
 ## Research Question
 Can a camera deployed near a bicycle bay accurately detect the number of bicycles parked at that bicycle bay, and therefore, help in determining the number of available parking spaces?
