@@ -35,8 +35,6 @@ Figure x - Example Image from Image.cv Dataset
 
 The custom images were taken by myself, over the course of two weeks throughout my daily commutes in London. These Images began as 3024px × 4032px coloured photos. In order to process them, I first recoloured them and cropped them into 3024px x 3024px squares. Next, I reduced their resolution to 1024px x 1024px using the [ImageMagick](https://imagemagick.org/index.php) app. Finally, I split each image into 16 separate images to increase the size of the dataset and get a good mix of images that contained bicycles and images with scenery around the bicycles. This process can be seen more clearly in Figure x, below.
 
-add something about edge impulse processing?
-
 ![tiled-example](https://user-images.githubusercontent.com/33913141/232334533-8a2e1d93-8ed5-45de-9826-ba791d9a05dd.png)
 
 Figure x - Example Image Processing for Custom Data
@@ -49,12 +47,21 @@ Tip: probably ~200 words and a diagram is usually good to describe your model!
 ## Experiments
 What experiments did you run to test your project? What parameters did you change? How did you measure performance? Did you write any scripts to evaluate performance? Did you use any tools to evaluate performance? Do you have graphs of results?
 
+i realized a lot of the processing could be done on edge impulse, blah blah
+
 Tip: probably ~300 words and graphs and tables are usually good to convey your results!
 
 ## Results and Observations
 Synthesis the main results and observations you made from building the project. Did it work perfectly? Why not? What worked and what didn't? Why? What would you do next if you had more time?
 
 Tip: probably ~300 words and remember images and diagrams bring results to life!
+
+## To Do
+- research on different models, why did i use the models i used
+- research on data processing and cleaning, why did i make things grey, why did i scale them, tiling, etc
+- research on the changes i made, did the changes fix overfitting? reducing resolution help?
+- add info about edge impulse
+- add references
 
 ## Bibliography
 If you added any references then add them in here using this format:
