@@ -33,7 +33,7 @@ The online images were retrieved in a single dataset from images.cv - a website 
 
 Figure x - Example Image from Image.cv Dataset
 
-The custom images were taken by myself, over the course of two weeks throughout my daily commutes in London.
+The custom images were taken by myself, over the course of two weeks throughout my daily commutes in London. These Images began as 3024px × 4032px coloured photos. In order to process them
 
 
 Tip: probably ~200 words and images of what the data 'looks like' are good!
