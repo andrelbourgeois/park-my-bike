@@ -33,15 +33,13 @@ The online images were retrieved in a single dataset from images.cv - a website 
 
 Figure x - Example Image from Image.cv Dataset
 
-The custom images were taken by myself, over the course of two weeks throughout my daily commutes in London. These Images began as 3024px × 4032px coloured photos. In order to process them
+The custom images were taken by myself, over the course of two weeks throughout my daily commutes in London. These Images began as 3024px × 4032px coloured photos. In order to process them, I first recoloured them and cropped them into 3024px x 3024px squares. Next, I reduced their resolution to 1024px x 1024px using the [ImageMagick](https://imagemagick.org/index.php) app. Finally, I split each image into 16 separate images to increase the size of the dataset and get a good mix of images that contained bicycles and images with scenery around the bicycles. This process can be seen more clearly in Figure x, below.
 
-
-Tip: probably ~200 words and images of what the data 'looks like' are good!
+add something about edge impulse processing?
 
 ![tiled-example](https://user-images.githubusercontent.com/33913141/232334533-8a2e1d93-8ed5-45de-9826-ba791d9a05dd.png)
 
-
-Figure x - Example of Tiling Images to Increase Size of Dataset and Reduce Overfitting
+Figure x - Example Image Processing for Custom Data
 
 ## Model
 This is a Deep Learning project! What model architecture did you use? Did you try different ones? Why did you choose the ones you did?
