@@ -7,7 +7,8 @@ This project details a study undertaken to understand whether a camera placed at
 
 The motivation for this project is twofold. As a cyclist myself, my friends and I understand the difficulty with locating bicycle parking in a large city. There are many available spaces throughout the city, but they can be difficult to find and are often filled at popular locations. Having the ability to both locate traditional bicycle bays and know whether they have available parking spaces would significantly reduce the friction associated with cycling to new destinations in London.
 Additionally, a similar system is already in use by London's self-service bike-sharing scheme, Santander Cycles. Although this scheme is enabled through a system of docking stations throughout the city instead of computer vision, the end result is the same - live data pushed to your favourite wayfinding app that shows a cyclist the location and availability of bicycles or parking at the Santander Cycle stations throughout the city. This feature is shown, below, in Figure 1.
-
+![santander-ex](https://user-images.githubusercontent.com/33913141/232324267-48dd7d55-727f-4613-ac91-2a92065b4d8a.png)
+Figure 1 - Example of Santander Bicycle Sharing Stations on Google Maps
 
 ## Research Question
 Can a camera deployed near a bicycle bay accurately detect the number of bicycles parked at that bicycle bay, and therefore, help in determining the number of available parking spaces?
@@ -21,9 +22,12 @@ Tip: probably ~200 words and a diagram is usually good to convey your design!
 Describe what data sources you have used and any cleaning, wrangling or organising you have done. Including some examples of the data helps others understand what you have been working with.
 
 Tip: probably ~200 words and images of what the data 'looks like' are good!
+![tiled-example](https://user-images.githubusercontent.com/33913141/232324282-30d0cb55-f5c5-4c52-8720-3200d6f13e4d.png)
+Figure x - Example of Tiling Images to Increase Size of Dataset and Reduce Overfitting
 
 ## Model
-This is a Deep Learning project! What model architecture did you use? Did you try different ones? Why did you choose the ones you did?
+This is a Deep Learning project! What model architecture did you use? Did you try d![Uploading santander-ex.png…]()
+ifferent ones? Why did you choose the ones you did?
 
 Tip: probably ~200 words and a diagram is usually good to describe your model!
 
