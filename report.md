@@ -25,6 +25,8 @@ Thinking back to the various application diagrams you have seen through the modu
 
 Tip: probably ~200 words and a diagram is usually good to convey your design!
 
+![application-overview](https://user-images.githubusercontent.com/33913141/233627213-fcf73104-deec-4406-ba5a-e641109437db.png)
+
 Figure 3 - Application Diagram
 
 ## Data
@@ -53,6 +55,9 @@ Tip: probably ~200 words and a diagram is usually good to describe your model!
 
 ## Experiments
 What experiments did you run to test your project? What parameters did you change? How did you measure performance? Did you write any scripts to evaluate performance? Did you use any tools to evaluate performance? Do you have graphs of results?
+
+For this project, I tested several different models including YOLOv5, FOMO, and MobileNet SSD.
+YOLO vs FOMO vs 
 ![experiments](https://user-images.githubusercontent.com/33913141/233605076-8015e691-b550-467e-97f8-49312fb2e6e5.png)
 
 Figure x - Chart of Notable Experiments and Results
