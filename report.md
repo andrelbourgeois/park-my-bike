@@ -1,10 +1,10 @@
 # PARK MY BIKE
 Author: André Bourgeois
 
-Project: Github Repository and Edge Impulse Repository (Add links)
+Project: [Github Repository]() and [Edge Impulse Repository](https://studio.edgeimpulse.com/public/201800/latest) (Add links)
 
 ## Introduction
-This project details a study undertaken to understand whether a camera placed at a bicycle bay could be used to remotely inform cyclists of available parking spaces at that bicycle bay. In order to accomplish this, a deep learning model was developed and trained to detect bicycles. The idea being, that if the number of bicycles can be accurately obtained at a specific bicycle bay and there is previous knowledge regarding the number of parking spaces at that bicycle bay, then the difference between these numbers is the number of available parking spaces. This number can then be pushed - along with the device's location - to a popular mapping application for public use. The aim of this project, however, is not the design of this entire system, but instead the design and deployment of this system’s deep learning capability. Figure 1, below, provides a more tangible idea of what this system might look like in practice.
+This project details a study undertaken to understand whether a camera placed at a bicycle bay could be used to remotely inform cyclists of available parking spaces at that bicycle bay. In order to accomplish this, a deep learning model was developed and trained to detect bicycles using [Edge Impulse](https://www.edgeimpulse.com/). The idea being, that if the number of bicycles can be accurately obtained at a specific bicycle bay and there is previous knowledge regarding the number of parking spaces at that bicycle bay, then the difference between these numbers is the number of available parking spaces. This number can then be pushed - along with the device's location - to a popular mapping application for public use. The aim of this project, however, is not the design of this entire system, but instead the design and deployment of this system’s deep learning capability. Figure 1, below, provides a more tangible idea of what this system might look like in practice.
 
 ![park-my-bike-diagram](https://user-images.githubusercontent.com/33913141/232341366-51ec127c-757a-477a-b7ca-77f8858b443d.png)
 
@@ -44,7 +44,7 @@ The custom images were taken by myself, over the course of two weeks throughout 
 
 Figure 5 - Example Image Processing for Custom Data
 
-In total, the combined dataset that was used contained 1441 images, similar to those shown in the previous figures.
+In total, the combined dataset that was used contained 1441 images, similar to those shown in the figures directly above.
 
 ## Model
 This is a Deep Learning project! What model architecture did you use? Did you try different ones? Why did you choose the ones you did?
@@ -53,6 +53,9 @@ Tip: probably ~200 words and a diagram is usually good to describe your model!
 
 ## Experiments
 What experiments did you run to test your project? What parameters did you change? How did you measure performance? Did you write any scripts to evaluate performance? Did you use any tools to evaluate performance? Do you have graphs of results?
+![experiments](https://user-images.githubusercontent.com/33913141/233605076-8015e691-b550-467e-97f8-49312fb2e6e5.png)
+
+Figure x - Chart of Notable Experiments and Results
 
 i realized a lot of the processing could be done on edge impulse, blah blah
 
