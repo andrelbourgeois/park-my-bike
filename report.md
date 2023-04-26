@@ -1,7 +1,7 @@
 # PARK MY BIKE
 Author: André Bourgeois
 
-Project: [Github Repository]() and [Edge Impulse Repository](https://studio.edgeimpulse.com/public/201800/latest) (Add links)
+Project: [Github Repository](https://github.com/andrelbourgeois/park-my-bike) and [Edge Impulse Repository](https://studio.edgeimpulse.com/public/201800/latest)
 
 ## Introduction
 This project details a study undertaken to understand whether a camera placed at a bicycle bay could be used to remotely inform cyclists of available parking spaces at that bicycle bay. In order to accomplish this, a deep learning model was developed and trained to detect bicycles using [Edge Impulse](https://www.edgeimpulse.com/). The idea being, that if the number of bicycles can be accurately obtained at a specific bicycle bay and there is previous knowledge regarding the number of parking spaces at that bicycle bay, then the difference between these numbers is the number of available parking spaces. This number can then be pushed - along with the device's location - to a popular mapping application for public use. The aim of this project, however, is not the design of this entire system, but instead the design and deployment of this system’s deep learning capability. Figure 1 provides a more tangible idea of what the whole system might look like in practice.
@@ -66,8 +66,8 @@ Figure 7 - Example Image Labelling with Bounding Boxes
 
 Decisions regarding the processing of these images are as follows:
 - Greyscaling; The FOMO model used currently only accepts greyscaled images and greyscaling simplifies the alogrithm and reduces computational requirements (Kanan & Cottrell, 2012) by reducing colour variable down to a single number between 0 - 255.
-- Squaring; The FOMO model used currently only accepts square images and 
-- Tiling
+- Squaring; The FOMO model used currently only accepts square images and it was a common standard dimension within all of the research I conducted as many model topologies require square input images (Isahit, 2022). 
+- Tiling; Allowed me to artificially increase the size of the dataset by augmenting these images.
 
 ## Model
 This is a Deep Learning project! What model architecture did you use? Did you try different ones? Why did you choose the ones you did?
@@ -103,7 +103,9 @@ Tip: probably ~300 words and remember images and diagrams bring results to life!
 
 Moreau, L. (2022) Announcing Fomo (faster objects, more objects), Edge Impulse. Available at: https://www.edgeimpulse.com/blog/announcing-fomo-faster-objects-more-objects#:~:text=FOMO%20can%20be%20thought%20of,all%20of%20a%20similar%20size. (Accessed: April 26, 2023). 
 
-Kanan, C. and Cottrell, G.W. (2012) Color-to-grayscale: Does the method matter in image recognition?, PLOS ONE. Public Library of Science. Available at: https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0029740#:~:text=The%20main%20reason%20why%20grayscale,algorithm%20and%20reduces%20computational%20requirements. (Accessed: April 26, 2023). 
+Kanan, C. and Cottrell, G.W. (2012) Color-to-grayscale: Does the method matter in image recognition?, PLOS ONE. Public Library of Science. Available at: https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0029740#:~:text=The%20main%20reason%20why%20grayscale,algorithm%20and%20reduces%20computational%20requirements. (Accessed: April 26, 2023).
+
+Isahit (2022) What is the purpose of image preprocessing in deep learning?, Isahit. isahit. Available at: https://www.isahit.com/blog/what-is-the-purpose-of-image-preprocessing-in-deep-learning (Accessed: April 26, 2023). 
 
 Tip: we use https://www.citethisforme.com to make this task even easier.
 
