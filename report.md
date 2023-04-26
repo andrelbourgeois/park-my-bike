@@ -4,14 +4,14 @@ Author: André Bourgeois
 Project: [Github Repository]() and [Edge Impulse Repository](https://studio.edgeimpulse.com/public/201800/latest) (Add links)
 
 ## Introduction
-This project details a study undertaken to understand whether a camera placed at a bicycle bay could be used to remotely inform cyclists of available parking spaces at that bicycle bay. In order to accomplish this, a deep learning model was developed and trained to detect bicycles using [Edge Impulse](https://www.edgeimpulse.com/). The idea being, that if the number of bicycles can be accurately obtained at a specific bicycle bay and there is previous knowledge regarding the number of parking spaces at that bicycle bay, then the difference between these numbers is the number of available parking spaces. This number can then be pushed - along with the device's location - to a popular mapping application for public use. The aim of this project, however, is not the design of this entire system, but instead the design and deployment of this system’s deep learning capability. Figure 1, below, provides a more tangible idea of what the whole system might look like in practice.
+This project details a study undertaken to understand whether a camera placed at a bicycle bay could be used to remotely inform cyclists of available parking spaces at that bicycle bay. In order to accomplish this, a deep learning model was developed and trained to detect bicycles using [Edge Impulse](https://www.edgeimpulse.com/). The idea being, that if the number of bicycles can be accurately obtained at a specific bicycle bay and there is previous knowledge regarding the number of parking spaces at that bicycle bay, then the difference between these numbers is the number of available parking spaces. This number can then be pushed - along with the device's location - to a popular mapping application for public use. The aim of this project, however, is not the design of this entire system, but instead the design and deployment of this system’s deep learning capability. Figure 1 provides a more tangible idea of what the whole system might look like in practice.
 
 ![park-my-bike-diagram](https://user-images.githubusercontent.com/33913141/232341366-51ec127c-757a-477a-b7ca-77f8858b443d.png)
 
 Figure 1 - Example of Park My Bike Deployment
 
 The motivation for this project is twofold. As a cyclist myself, my friends and I understand the difficulty of locating bicycle parking in a large city. There are many available spaces throughout the city, but they can be difficult to find and are often filled in popular areas. Having the ability to both locate traditional bicycle bays and know whether they have available parking spaces would significantly reduce the friction associated with cycling to new destinations in London.
-Additionally, a similar system is already in use by London's self-service bike-sharing scheme, Santander Cycles. Although this scheme is enabled through a system of docking stations throughout the city instead of computer vision, the end result is the same - live data pushed to your favourite wayfinding app that shows cyclists the location and availability of bicycles or parking at the Santander Cycle stations throughout the city. This feature is shown, below, in Figure 2.
+Additionally, a similar system is already in use by London's self-service bike-sharing scheme, Santander Cycles. Although this scheme is enabled through a system of docking stations throughout the city instead of computer vision, the end result is the same - live data pushed to your favourite wayfinding app that shows cyclists the location and availability of bicycles or parking at the Santander Cycle stations throughout the city. This feature is shown in Figure 2.
 
 ![santander-ex](https://user-images.githubusercontent.com/33913141/232324525-efa49797-fa02-4039-96cb-835080c791ce.png)
 
@@ -25,7 +25,7 @@ Thinking back to the various application diagrams you have seen through the modu
 
 Tip: probably ~200 words and a diagram is usually good to convey your design!
 
-The purpose of this application is to identify bicycles. The image input relies on the edge device's camera - in this case, the OV7675 CMOS VGA Camera Module connected to the Arduino Nano 33 BLE Sense. While images are being captured through a real-time video feed, these are being processed by an object detection model built on the Edge Impulse platform
+The purpose of this application is to identify bicycles. The image input relies on the edge device's camera - in this case, the OV7675 CMOS VGA Camera Module connected to the Arduino Nano 33 BLE Sense. While images are being captured through a real-time video feed, they are each being processed and split into a grid where the equivalent of image classification is ran across all cells in the grid independently in parallel. (Moreau, 2022) A depiction of this processing stage can be seen in Figure 3.
 
 ![application-overview](https://user-images.githubusercontent.com/33913141/234704224-94128693-fd25-4e0f-9a65-26ac27104619.png)
 
@@ -33,12 +33,12 @@ Figure 3 - Application Diagram
 
 ![example-image-proc](https://user-images.githubusercontent.com/33913141/234701976-f93cd07f-6dae-4cc7-a8ab-ab9fbe141bd7.png)
 
-Figure 4 - Example of FOMO Image Processing (Moreau, 2022)
+Figure 4 - Example of FOMO Image Processing; 320x320 Image Split Into a 40x40 Grid (Moreau, 2022)
 
 ## Data
 The data utilised for this project combined open-source, online images and a dataset of custom images taken around London, UK.
 
-The online images were retrieved in a single dataset from images.cv - a website offering open-source, labelled image datasets. This [dataset](https://images.cv/dataset/bicycle-image-classification-dataset) contained 705 images of bicycles, bike-related objects, and images that could be labelled as bicycle, such as bicycle kicks and bicycle playing cards. The website provides the ability to download this dataset in a range of sizes, with options for colour. It also provides the option to divide the images into folders for training, validation, and testing. With these features and after some pruning of images I didn't believe to be useful, I was left with 593, greyscaled images at a size of 256px x 256px. Example images can be seen below in Figure 5.
+The online images were retrieved in a single dataset from images.cv - a website offering open-source, labelled image datasets. This [dataset](https://images.cv/dataset/bicycle-image-classification-dataset) contained 705 images of bicycles, bike-related objects, and images that could be labelled as bicycle, such as bicycle kicks and bicycle playing cards. The website provides the ability to download this dataset in a range of sizes, with options for colour. It also provides the option to divide the images into folders for training, validation, and testing. With these features and after some pruning of images I didn't believe to be useful, I was left with 593, greyscaled images at a size of 256px x 256px. Example images can be seen in Figure 5.
 
 ![gray-2WZF8BLTOBMY](https://user-images.githubusercontent.com/33913141/232325511-8c5b96da-0467-4f46-a7d1-f5ee82f54ce9.jpg) &nbsp;&nbsp;&nbsp;
 ![gray-2EVEA5H88OEQ](https://user-images.githubusercontent.com/33913141/232341993-81e1c81e-aca3-4646-a54a-84552117d84b.jpg) &nbsp;&nbsp;&nbsp;
@@ -46,7 +46,7 @@ The online images were retrieved in a single dataset from images.cv - a website 
 
 Figure 5 - Example Images from Image.cv Dataset
 
-The custom images were taken by myself, over the course of two weeks throughout my daily commutes in London. These Images began as 3024px × 4032px coloured photos. In order to process them, I first recoloured them and cropped them into 3024px x 3024px squares. Next, I reduced their resolution to 1024px x 1024px using the [ImageMagick](https://imagemagick.org/index.php) app. Finally, I split each image into 16 separate images to increase the size of the dataset and get a good mix of images that contained bicycles and images with scenery around the bicycles. This process resulted in 848 greyscaled images at a size of 256px x 256px. Figure 6, below, demonstrates the image processing.
+The custom images were taken by myself, over the course of two weeks throughout my daily commutes in London. These Images began as 3024px × 4032px coloured photos. In order to process them, I first recoloured them and cropped them into 3024px x 3024px squares. Next, I reduced their resolution to 1024px x 1024px using the [ImageMagick](https://imagemagick.org/index.php) app. Finally, I split each image into 16 separate images to increase the size of the dataset and get a good mix of images that contained bicycles and images with scenery around the bicycles. This process resulted in 848 greyscaled images at a size of 256px x 256px. Figure 6 demonstrates the custom image processing.
 
 ![tiled-example](https://user-images.githubusercontent.com/33913141/232341346-e35a9ab2-1f36-45c1-84aa-d26142a5de61.png)
 
@@ -54,7 +54,7 @@ Figure 6 - Example Image Processing for Custom Data
 
 In total, the combined dataset that was used contained 1441 images, similar to those shown in the figures directly above.
 
-In order to label each image, I manually drew bounding boxes around any bicycles using the Edge Impulse platform. See Figure 7, below, for examples.
+In order to label each image, I manually drew bounding boxes around any bicycles using the Edge Impulse platform. See Figure 7 for examples.
 
 ![label-ex1](https://user-images.githubusercontent.com/33913141/234707499-47352fff-d8ae-479a-a370-168cf782c9f8.png)
 &nbsp;&nbsp;&nbsp;
@@ -62,7 +62,7 @@ In order to label each image, I manually drew bounding boxes around any bicycles
 &nbsp;&nbsp;&nbsp;
 ![label-ex3](https://user-images.githubusercontent.com/33913141/234707555-f20e5f8f-4b67-478e-89be-784cebb60a7c.png)
 
-Figure 7 - Example Images with Bounding Boxes
+Figure 7 - Example Image Labelling with Bounding Boxes
 
 ## Model
 This is a Deep Learning project! What model architecture did you use? Did you try different ones? Why did you choose the ones you did?
