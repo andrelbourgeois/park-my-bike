@@ -71,41 +71,60 @@ Decisions regarding the processing of these images are as follows:
 
 ## Model
 This is a Deep Learning project! What model architecture did you use? Did you try different ones? Why did you choose the ones you did?
+
 In this project, I tested 3 model architectures which represented a selection of all model architectures on the Edge Impulse platform.
 
 - FOMO MobileNetV2 0.35 (referred to as FOMO)
 - MobileNetV2 SSD FPN-Lite 320x320 (referred to as FPN-Lite)
 - YOLOv5 (referred to as YOLO)
 
-I spent most of my time testing the FOMO and FPN-Lite models as those gave the best results during my first few tests. The FPN-Lite model even going on to achieve the highest accuracy throughout all of my experimentation (84.19%). However, I soon realized that in order to deploy onto a constrained device such as the Arduino Nano 33 BLE Sense, the only model I could deploy from Edge Impulse was one built with FOMO.
-
-For this project, I tested several different models including YOLOv5, FOMO, and MobileNet SSD.
-YOLO vs FOMO vs 
+I spent most of my time testing the FOMO and FPN-Lite models as those gave the best results during my first few tests. The FPN-Lite model even going on to achieve the highest accuracy throughout all of my experimentation (84.19%). However, I soon realized that in order to deploy onto a constrained device such as the Arduino Nano 33 BLE Sense, the only model I could deploy from Edge Impulse was one built with FOMO. Due to this, I conducted the remainder of my test with FOMO
 
 Tip: probably ~200 words and a diagram is usually good to describe your model!
 
 ## Experiments
 What experiments did you run to test your project? What parameters did you change? How did you measure performance? Did you write any scripts to evaluate performance? Did you use any tools to evaluate performance? Do you have graphs of results?
 
+talk about first experiments, FOMO and FPN-Lite
+moving from 256x256 images to 320x320 to use FPN-Lite, then moving to FOMO and realizing nothing was being detected, and moving to 96x96 as the Edge Impulse recommended size for FOMO (realization that my model trained a lot quicker with a smaller image size, allowing me to run more epochs.
+
+cerate large experiemnts chart, maybe graph things on excel?
+
 ![experiments](https://user-images.githubusercontent.com/33913141/233605076-8015e691-b550-467e-97f8-49312fb2e6e5.png)
 
 Figure x - Chart of Notable Experiments and Results
 
-i realized a lot of the processing could be done on edge impulse, blah blah
+i realized a lot of the processing could be done on edge impulse, so i didn't have to reporcess my images.
 
 Tip: probably ~300 words and graphs and tables are usually good to convey your results!
 
 ## Results and Observations
 Synthesis the main results and observations you made from building the project. Did it work perfectly? Why not? What worked and what didn't? Why? What would you do next if you had more time?
 
+### Data Collection
+More images collected from different angles, times of day, weather conditions, and scenery may increase the usability of the application. Images taken from the specific angle in which the camera will be looking at bicycles would be most beneficial.
+
+### Image Processing
+Much of the image processing I conducted prior to uploading my images to Edge Impulse can be handled by the platform itself, such as greyscaling and cropping or resizing images. Knowing this will drastically improve my future image processing practices. Additionally, this ability allowed me to quickly alter image characteristics between experiments, allowing me to quckly test 256x256, 320x320, and 96x96 resolutions without needing to reupload any data.
+
+### Model & Experimentation
+Throughout the majority of my test, the training accuracy of my model was 23.72%. I quickly realized that this number correlated exactly with the percentage of testing images that did not contain any bicycles. Therefore, for the majority of test, my model was unable to detect any bicycles.
+
+After switching from FOMO to FPN-Lite, there was a huge improvement in the accuracy of bicycle detection. I assume this was due to the sheer size of the FPN-Lite model, which consequently also made it unsuitable for deployment onto an Arduino Nano 33 BLE Sense.
+
+Upon returning to the FOMO model, and conducting some research, I decided to resize my images in my impulse design to 96x96 as this is another size recommended by Edge Impulse for FOMO. This also resulted in a significant improvement in my model's accuracy. I believe this was due decreased resolution of the image making the model's learning more widely applicable to other images, as well as an improvement in the speed of training which allowed me to run more epochs.
+
+### Deployment
+xx
+images of edge device and deployment video stream?
+
+Images of deployment, and detection?
+
 Tip: probably ~300 words and remember images and diagrams bring results to life!
 
 ## To Do
-- research on different models, why did i use the models i used
-- research on data processing and cleaning, why did i make things grey, why did i scale them, tiling, etc
 - research on the changes i made, did the changes fix overfitting? reducing resolution help?
 - add info about edge impulse
-- add references
 
 ## Bibliography
 
@@ -116,8 +135,6 @@ Dickson, B. et al. (2022) Fomo is a tinyml neural network for real-time object d
 Kanan, C. and Cottrell, G.W. (2012) Color-to-grayscale: Does the method matter in image recognition?, PLOS ONE. Public Library of Science. Available at: https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0029740#:~:text=The%20main%20reason%20why%20grayscale,algorithm%20and%20reduces%20computational%20requirements. (Accessed: April 26, 2023).
 
 Isahit (2022) What is the purpose of image preprocessing in deep learning?, Isahit. isahit. Available at: https://www.isahit.com/blog/what-is-the-purpose-of-image-preprocessing-in-deep-learning (Accessed: April 26, 2023). 
-
-Tip: we use https://www.citethisforme.com to make this task even easier.
 
 ## Declaration of Authorship
 I, André Bourgeois, confirm that the work presented in this assessment is my own. Where information has been derived from other sources, I confirm that this has been indicated in the work.
