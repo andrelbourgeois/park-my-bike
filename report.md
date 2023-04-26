@@ -27,9 +27,13 @@ Tip: probably ~200 words and a diagram is usually good to convey your design!
 
 The purpose of this application is to identify bicycles. The image input relies on the edge device's camera - in this case, the OV7675 CMOS VGA Camera Module connected to the Arduino Nano 33 BLE Sense. While images are being captured through a real-time video feed, these are being processed by an object detection model built on the Edge Impulse platform
 
-![application-overview](https://user-images.githubusercontent.com/33913141/233627213-fcf73104-deec-4406-ba5a-e641109437db.png)
+![application-overview](https://user-images.githubusercontent.com/33913141/234701880-37fb0601-a725-4ac8-bffb-b1fa8f483efb.png)
 
 Figure 3 - Application Diagram
+
+![example-image-proc](https://user-images.githubusercontent.com/33913141/234701976-f93cd07f-6dae-4cc7-a8ab-ab9fbe141bd7.png)
+
+Figure 4 - Example of FOMO Image Processing
 
 ## Data
 The data utilised for this project combined open-source, online images and a dataset of custom images taken around London, UK.
