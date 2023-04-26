@@ -1,5 +1,5 @@
 # PARK-MY-BIKE
-This repository contains an object detection model that can be deployed to an edge device to identify bicycles at bicycle bays. The model is based on the MobileNetV2 SSD FPN-Lite 320x320 architecture and was trained on a combined dataset of open-source images [found here](https://images.cv/dataset/bicycle-image-classification-dataset) and custom images sourced from around London, UK.
+This repository contains an object detection model that can be deployed to an edge device to identify bicycles at bicycle bays. The model was originally based on the MobileNetV2 SSD FPN-Lite 320x320 architecture, however, this was later changed to the MobileNetV2 0.35 architecture due to memory constraints resulting in the inability of deploying the original model onto an Arduino Nano 33 BLE Sense. The MobileNetV2 SSD FPN-Lite 320x320 works wonderfully on a smart phone, however, smart phone deployment does not fit the needs of this project. This model was trained on a combined dataset of open-source images [found here](https://images.cv/dataset/bicycle-image-classification-dataset) and custom images sourced from around London, UK.
 
 This project is the final submission for CASA0018 (Deep Learning for Sensor Networks) in the MSc in Connected Environments at UCL's Bartlett Centre for Advanced Spatial Analysis.
 
