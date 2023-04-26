@@ -33,7 +33,7 @@ Figure 3 - Application Diagram
 
 ![example-image-proc](https://user-images.githubusercontent.com/33913141/234701976-f93cd07f-6dae-4cc7-a8ab-ab9fbe141bd7.png)
 
-Figure 4 - Example of FOMO Image Processing
+Figure 4 - Example of FOMO Image Processing (Moreau, 2022)
 
 ## Data
 The data utilised for this project combined open-source, online images and a dataset of custom images taken around London, UK.
@@ -56,11 +56,11 @@ In total, the combined dataset that was used contained 1441 images, similar to t
 
 In order to label each image, I manually drew bounding boxes around any bicycles using the Edge Impulse platform. See Figure 7, below, for examples.
 
-![label-ex1](https://user-images.githubusercontent.com/33913141/234705710-6790e5c8-3bb4-4303-825a-5024462f02e4.jpg)
+![label-ex1](https://user-images.githubusercontent.com/33913141/234707499-47352fff-d8ae-479a-a370-168cf782c9f8.png)
 &nbsp;&nbsp;&nbsp;
-![label-ex2](https://user-images.githubusercontent.com/33913141/234705759-d1035236-59f4-4434-89b1-cfd6c33716f4.jpg)
+![label-ex2](https://user-images.githubusercontent.com/33913141/234707532-adf97aa0-1b5a-49d7-8980-12a19b246e92.png)
 &nbsp;&nbsp;&nbsp;
-![label-ex3](https://user-images.githubusercontent.com/33913141/234705770-29794fe8-d564-4e7c-a126-1ee8ce0ac60d.jpg)
+![label-ex3](https://user-images.githubusercontent.com/33913141/234707555-f20e5f8f-4b67-478e-89be-784cebb60a7c.png)
 
 Figure 7 - Example Images with Bounding Boxes
 
@@ -96,7 +96,7 @@ Tip: probably ~300 words and remember images and diagrams bring results to life!
 
 ## Bibliography
 
-Brownlee, J. (2021) A Gentle Introduction to Object Recognition With Deep Learning, MachineLearningMastery.com. Available at: https://machinelearningmastery.com/object-recognition-with-deep-learning/ (Accessed: April 26, 2023). 
+Moreau, L. (2022) Announcing Fomo (faster objects, more objects), Edge Impulse. Available at: https://www.edgeimpulse.com/blog/announcing-fomo-faster-objects-more-objects#:~:text=FOMO%20can%20be%20thought%20of,all%20of%20a%20similar%20size. (Accessed: April 26, 2023). 
 
 Last name, First initial. (Year published). Title. Edition. (Only include the edition if it is not the first edition) City published: Publisher, Page(s). http://google.com
 
