@@ -27,7 +27,7 @@ Tip: probably ~200 words and a diagram is usually good to convey your design!
 
 The purpose of this application is to identify bicycles. The image input relies on the edge device's camera - in this case, the OV7675 CMOS VGA Camera Module connected to the Arduino Nano 33 BLE Sense. While images are being captured through a real-time video feed, these are being processed by an object detection model built on the Edge Impulse platform
 
-![application-overview](https://user-images.githubusercontent.com/33913141/234701880-37fb0601-a725-4ac8-bffb-b1fa8f483efb.png)
+![application-overview](https://user-images.githubusercontent.com/33913141/234704224-94128693-fd25-4e0f-9a65-26ac27104619.png)
 
 Figure 3 - Application Diagram
 
@@ -38,28 +38,31 @@ Figure 4 - Example of FOMO Image Processing
 ## Data
 The data utilised for this project combined open-source, online images and a dataset of custom images taken around London, UK.
 
-The online images were retrieved in a single dataset from images.cv - a website offering open-source, labelled image datasets. This [dataset](https://images.cv/dataset/bicycle-image-classification-dataset) contained 705 images of bicycles, bike-related objects, and images that could be labelled as bicycle, such as bicycle kicks and bicycle playing cards. The website provides the ability to download this dataset in a range of sizes, with options for colour. It also provides the option to divide the images into folders for training, validation, and testing. With these features and after some pruning of images I didn't believe to be useful, I was left with 593, greyscaled images at a size of 256px x 256px. Example images can be seen below in Figure 4.
+The online images were retrieved in a single dataset from images.cv - a website offering open-source, labelled image datasets. This [dataset](https://images.cv/dataset/bicycle-image-classification-dataset) contained 705 images of bicycles, bike-related objects, and images that could be labelled as bicycle, such as bicycle kicks and bicycle playing cards. The website provides the ability to download this dataset in a range of sizes, with options for colour. It also provides the option to divide the images into folders for training, validation, and testing. With these features and after some pruning of images I didn't believe to be useful, I was left with 593, greyscaled images at a size of 256px x 256px. Example images can be seen below in Figure 5.
 
 ![gray-2WZF8BLTOBMY](https://user-images.githubusercontent.com/33913141/232325511-8c5b96da-0467-4f46-a7d1-f5ee82f54ce9.jpg) &nbsp;&nbsp;&nbsp;
 ![gray-2EVEA5H88OEQ](https://user-images.githubusercontent.com/33913141/232341993-81e1c81e-aca3-4646-a54a-84552117d84b.jpg) &nbsp;&nbsp;&nbsp;
 ![gray-2VARMD3C8MZF](https://user-images.githubusercontent.com/33913141/232342052-bd7e1d77-40b9-400e-a0b6-73148df6c06e.jpg)
 
-Figure 4 - Example Images from Image.cv Dataset
+Figure 5 - Example Images from Image.cv Dataset
 
-The custom images were taken by myself, over the course of two weeks throughout my daily commutes in London. These Images began as 3024px × 4032px coloured photos. In order to process them, I first recoloured them and cropped them into 3024px x 3024px squares. Next, I reduced their resolution to 1024px x 1024px using the [ImageMagick](https://imagemagick.org/index.php) app. Finally, I split each image into 16 separate images to increase the size of the dataset and get a good mix of images that contained bicycles and images with scenery around the bicycles. This process resulted in 848 greyscaled images at a size of 256px x 256px. Figure 5, below, demonstrates the image processing.
+The custom images were taken by myself, over the course of two weeks throughout my daily commutes in London. These Images began as 3024px × 4032px coloured photos. In order to process them, I first recoloured them and cropped them into 3024px x 3024px squares. Next, I reduced their resolution to 1024px x 1024px using the [ImageMagick](https://imagemagick.org/index.php) app. Finally, I split each image into 16 separate images to increase the size of the dataset and get a good mix of images that contained bicycles and images with scenery around the bicycles. This process resulted in 848 greyscaled images at a size of 256px x 256px. Figure 6, below, demonstrates the image processing.
 
 ![tiled-example](https://user-images.githubusercontent.com/33913141/232341346-e35a9ab2-1f36-45c1-84aa-d26142a5de61.png)
 
-Figure 5 - Example Image Processing for Custom Data
+Figure 6 - Example Image Processing for Custom Data
 
 In total, the combined dataset that was used contained 1441 images, similar to those shown in the figures directly above.
 
-Labelling?
-On each image, I manually drew a bounding box around any bicycles using the Edge Impulse platform.
+In order to label each image, I manually drew bounding boxes around any bicycles using the Edge Impulse platform. See Figure 7, below, for examples.
 
-insert images
+![label-ex1](https://user-images.githubusercontent.com/33913141/234705710-6790e5c8-3bb4-4303-825a-5024462f02e4.jpg)
+&nbsp;&nbsp;&nbsp;
+![label-ex2](https://user-images.githubusercontent.com/33913141/234705759-d1035236-59f4-4434-89b1-cfd6c33716f4.jpg)
+&nbsp;&nbsp;&nbsp;
+![label-ex3](https://user-images.githubusercontent.com/33913141/234705770-29794fe8-d564-4e7c-a126-1ee8ce0ac60d.jpg)
 
-Figure 6 - Example Images with Bounding Boxes
+Figure 7 - Example Images with Bounding Boxes
 
 ## Model
 This is a Deep Learning project! What model architecture did you use? Did you try different ones? Why did you choose the ones you did?
