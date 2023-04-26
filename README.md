@@ -10,8 +10,8 @@ This project is the final submission for CASA0018 (Deep Learning for Sensor Netw
 - Licensing information can be found in LICENSE.md.
 
 ## Softwares Used
-- edge impulse
-- ImageMagick
+- [Edge Impulse](https://edgeimpulse.com/)
+- [ImageMagick](https://imagemagick.org/index.php)
 
 ## Installation
 x
@@ -31,7 +31,7 @@ This project is licensed under the MIT License.
 
 ## FAQ
 Q: How accurate is the model?
-A: The model was trained on a custom dataset of bicycle images and has an accuracy of approximately 85%.
+A: The modes were trained on a custom dataset of bicycle images and had a maximum accuracy of 85% while using the MobileNetV2 SSD FPN-Lite 320x320 architecture, however, this model was too large to deploy onto the Arduinio Nano 33 BLE Sense. Instead, the deployed model uses the FOMO (Faster Objects, More Objects) MobileNetV2 0.1 architecture which is officially supported by Edge Impulse. Thise models is designed to be <100KB in size and support a grayscale input at any resolution.
 
 Q: Can the model detect other objects besides bicycles?
 A: The model was trained specifically to detect bicycles and may not be accurate at identifying other objects.
