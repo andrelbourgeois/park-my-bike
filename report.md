@@ -89,7 +89,7 @@ Tip: probably ~300 words and remember images and diagrams bring results to life!
 
 ## Bibliography
 
-Brownlee, J. (2019). A Gentle Introduction to Object Recognition With Deep Learning. Machine Learning Mastery. https://machinelearningmastery.com/object-recognition-with-deep-learning
+Brownlee, J. (2021) A Gentle Introduction to Object Recognition With Deep Learning, MachineLearningMastery.com. Available at: https://machinelearningmastery.com/object-recognition-with-deep-learning/ (Accessed: April 26, 2023). 
 
 Last name, First initial. (Year published). Title. Edition. (Only include the edition if it is not the first edition) City published: Publisher, Page(s). http://google.com
 
