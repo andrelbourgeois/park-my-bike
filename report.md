@@ -21,10 +21,6 @@ Figure 2 - Example of Santander Bicycle Sharing Stations on Google Maps
 Can a camera deployed near a bicycle bay accurately detect the number of bicycles parked at that bicycle bay, and therefore, help in determining the number of available parking spaces?
 
 ## Application Overview
-Thinking back to the various application diagrams you have seen through the module - how would you describe an overview of the building blocks of your project - how do they connect, what do the component parts include.
-
-Tip: probably ~200 words and a diagram is usually good to convey your design!
-
 The purpose of this application is to identify bicycles. The image input relies on the edge device's camera - in this case, the OV7675 CMOS VGA Camera Module connected to the Arduino Nano 33 BLE Sense. While images are being captured through a real-time video feed, they are each being processed and split into a grid where the equivalent of image classification is ran across all cells in the grid independently in parallel. (Moreau, 2022) A depiction of this processing stage can be seen in Figure 4. Following this processing, the model searches the image for features similar to those it was trained on - bicycles - and makes a decision as to whether or not there are any bikes in the image. With the FOMO model, an affirmative decision is depicted as a centroid marker on the image, because instead of predictin bounding boxes, FOMO predicts the objects centre (Dickson et al., 2022). An example of an image with a bounding box next to the same image with a centroid marker can be seen in Figure 5.
 
 ![application-overview](https://user-images.githubusercontent.com/33913141/234704224-94128693-fd25-4e0f-9a65-26ac27104619.png)
@@ -35,7 +31,7 @@ Figure 3 - Application Diagram
 
 Figure 4 - Example of FOMO Image Processing; 320x320 Image Split Into a 40x40 Grid (Moreau, 2022)
 
-![box-vs-cent](https://user-images.githubusercontent.com/33913141/234717033-b37b8c07-a26a-4bb1-8bfa-bef073df791b.png)
+![box-vs-cent](https://user-images.githubusercontent.com/33913141/234717829-0de49c8a-d4c6-4827-9785-05001ed3d35e.png)
 
 Figure 5 - Example of FOMO's Centroid Marker
 
