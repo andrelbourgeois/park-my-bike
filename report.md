@@ -88,9 +88,8 @@ Tip: probably ~300 words and remember images and diagrams bring results to life!
 - add references
 
 ## Bibliography
-If you added any references then add them in here using this format:
 
-Last name, First initial. (Year published). Title. Edition. (Only include the edition if it is not the first edition) City published: Publisher, Page(s). http://google.com
+Brownlee, J. (2019). A Gentle Introduction to Object Recognition With Deep Learning. Machine Learning Mastery. https://machinelearningmastery.com/object-recognition-with-deep-learning
 
 Last name, First initial. (Year published). Title. Edition. (Only include the edition if it is not the first edition) City published: Publisher, Page(s). http://google.com
 
