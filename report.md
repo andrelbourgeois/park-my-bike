@@ -4,14 +4,14 @@ Author: André Bourgeois
 Project: [Github Repository]() and [Edge Impulse Repository](https://studio.edgeimpulse.com/public/201800/latest) (Add links)
 
 ## Introduction
-This project details a study undertaken to understand whether a camera placed at a bicycle bay could be used to remotely inform cyclists of available parking spaces at that bicycle bay. In order to accomplish this, a deep learning model was developed and trained to detect bicycles using [Edge Impulse](https://www.edgeimpulse.com/). The idea being, that if the number of bicycles can be accurately obtained at a specific bicycle bay and there is previous knowledge regarding the number of parking spaces at that bicycle bay, then the difference between these numbers is the number of available parking spaces. This number can then be pushed - along with the device's location - to a popular mapping application for public use. The aim of this project, however, is not the design of this entire system, but instead the design and deployment of this system’s deep learning capability. Figure 1, below, provides a more tangible idea of what this system might look like in practice.
+This project details a study undertaken to understand whether a camera placed at a bicycle bay could be used to remotely inform cyclists of available parking spaces at that bicycle bay. In order to accomplish this, a deep learning model was developed and trained to detect bicycles using [Edge Impulse](https://www.edgeimpulse.com/). The idea being, that if the number of bicycles can be accurately obtained at a specific bicycle bay and there is previous knowledge regarding the number of parking spaces at that bicycle bay, then the difference between these numbers is the number of available parking spaces. This number can then be pushed - along with the device's location - to a popular mapping application for public use. The aim of this project, however, is not the design of this entire system, but instead the design and deployment of this system’s deep learning capability. Figure 1, below, provides a more tangible idea of what the whole system might look like in practice.
 
 ![park-my-bike-diagram](https://user-images.githubusercontent.com/33913141/232341366-51ec127c-757a-477a-b7ca-77f8858b443d.png)
 
 Figure 1 - Example of Park My Bike Deployment
 
-The motivation for this project is twofold. As a cyclist myself, my friends and I understand the difficulty with locating bicycle parking in a large city. There are many available spaces throughout the city, but they can be difficult to find and are often filled at popular locations. Having the ability to both locate traditional bicycle bays and know whether they have available parking spaces would significantly reduce the friction associated with cycling to new destinations in London.
-Additionally, a similar system is already in use by London's self-service bike-sharing scheme, Santander Cycles. Although this scheme is enabled through a system of docking stations throughout the city instead of computer vision, the end result is the same - live data pushed to your favourite wayfinding app that shows a cyclist the location and availability of bicycles or parking at the Santander Cycle stations throughout the city. This feature is shown, below, in Figure 2.
+The motivation for this project is twofold. As a cyclist myself, my friends and I understand the difficulty of locating bicycle parking in a large city. There are many available spaces throughout the city, but they can be difficult to find and are often filled in popular areas. Having the ability to both locate traditional bicycle bays and know whether they have available parking spaces would significantly reduce the friction associated with cycling to new destinations in London.
+Additionally, a similar system is already in use by London's self-service bike-sharing scheme, Santander Cycles. Although this scheme is enabled through a system of docking stations throughout the city instead of computer vision, the end result is the same - live data pushed to your favourite wayfinding app that shows cyclists the location and availability of bicycles or parking at the Santander Cycle stations throughout the city. This feature is shown, below, in Figure 2.
 
 ![santander-ex](https://user-images.githubusercontent.com/33913141/232324525-efa49797-fa02-4039-96cb-835080c791ce.png)
 
@@ -24,6 +24,8 @@ Can a camera deployed near a bicycle bay accurately detect the number of bicycle
 Thinking back to the various application diagrams you have seen through the module - how would you describe an overview of the building blocks of your project - how do they connect, what do the component parts include.
 
 Tip: probably ~200 words and a diagram is usually good to convey your design!
+
+The purpose of this application is to identify bicycles. The image input relies on the edge device's camera - in this case, the OV7675 CMOS VGA Camera Module connected to the Arduino Nano 33 BLE Sense. While images are being captured through a real-time video feed, these are being processed by an object detection model built on the Edge Impulse platform
 
 ![application-overview](https://user-images.githubusercontent.com/33913141/233627213-fcf73104-deec-4406-ba5a-e641109437db.png)
 
@@ -47,6 +49,13 @@ The custom images were taken by myself, over the course of two weeks throughout 
 Figure 5 - Example Image Processing for Custom Data
 
 In total, the combined dataset that was used contained 1441 images, similar to those shown in the figures directly above.
+
+Labelling?
+On each image, I manually drew a bounding box around any bicycles using the Edge Impulse platform.
+
+insert images
+
+Figure 6 - Example Images with Bounding Boxes
 
 ## Model
 This is a Deep Learning project! What model architecture did you use? Did you try different ones? Why did you choose the ones you did?
