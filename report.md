@@ -71,6 +71,13 @@ Decisions regarding the processing of these images are as follows:
 
 ## Model
 This is a Deep Learning project! What model architecture did you use? Did you try different ones? Why did you choose the ones you did?
+In this project, I tested 3 model architectures which represented a selection of all model architectures on the Edge Impulse platform.
+
+- FOMO MobileNetV2 0.35 (referred to as FOMO)
+- MobileNetV2 SSD FPN-Lite 320x320 (referred to as FPN-Lite)
+- YOLOv5 (referred to as YOLO)
+
+I spent most of my time testing the FOMO and FPN-Lite models as those gave the best results during my first few tests. The FPN-Lite model even going on to achieve the highest accuracy throughout all of my experimentation (84.19%). However, I soon realized that in order to deploy onto a constrained device such as the Arduino Nano 33 BLE Sense, the only model I could deploy from Edge Impulse was one built with FOMO.
 
 For this project, I tested several different models including YOLOv5, FOMO, and MobileNet SSD.
 YOLO vs FOMO vs 
