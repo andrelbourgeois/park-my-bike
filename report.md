@@ -25,7 +25,7 @@ Thinking back to the various application diagrams you have seen through the modu
 
 Tip: probably ~200 words and a diagram is usually good to convey your design!
 
-The purpose of this application is to identify bicycles. The image input relies on the edge device's camera - in this case, the OV7675 CMOS VGA Camera Module connected to the Arduino Nano 33 BLE Sense. While images are being captured through a real-time video feed, they are each being processed and split into a grid where the equivalent of image classification is ran across all cells in the grid independently in parallel. (Moreau, 2022) A depiction of this processing stage can be seen in Figure 4. Follwing this processing, the model searches the image for features similar to those it was trained on - bicycles - and makes a decision as to whether or not there are any bikes in the image.
+The purpose of this application is to identify bicycles. The image input relies on the edge device's camera - in this case, the OV7675 CMOS VGA Camera Module connected to the Arduino Nano 33 BLE Sense. While images are being captured through a real-time video feed, they are each being processed and split into a grid where the equivalent of image classification is ran across all cells in the grid independently in parallel. (Moreau, 2022) A depiction of this processing stage can be seen in Figure 4. Following this processing, the model searches the image for features similar to those it was trained on - bicycles - and makes a decision as to whether or not there are any bikes in the image. With the FOMO model, an affirmative decision is depicted as a centroid marker on the image, because instead of predictin bounding boxes, FOMO predicts the objects centre (Dickson et al., 2022). An example of an image with a bounding box next to the same image with a centroid marker can be seen in Figure 5.
 
 ![application-overview](https://user-images.githubusercontent.com/33913141/234704224-94128693-fd25-4e0f-9a65-26ac27104619.png)
 
@@ -35,26 +35,30 @@ Figure 3 - Application Diagram
 
 Figure 4 - Example of FOMO Image Processing; 320x320 Image Split Into a 40x40 Grid (Moreau, 2022)
 
+![box-vs-cent](https://user-images.githubusercontent.com/33913141/234717033-b37b8c07-a26a-4bb1-8bfa-bef073df791b.png)
+
+Figure 5 - Example of FOMO's Centroid Marker
+
 ## Data
 The data utilised for this project combined open-source, online images and a dataset of custom images taken around London, UK.
 
-The online images were retrieved in a single dataset from images.cv - a website offering open-source, labelled image datasets. This [dataset](https://images.cv/dataset/bicycle-image-classification-dataset) contained 705 images of bicycles, bike-related objects, and images that could be labelled as bicycle, such as bicycle kicks and bicycle playing cards. The website provides the ability to download this dataset in a range of sizes, with options for colour. It also provides the option to divide the images into folders for training, validation, and testing. With these features and after some pruning of images I didn't believe to be useful, I was left with 593, greyscaled images at a size of 256px x 256px. Example images can be seen in Figure 5.
+The online images were retrieved in a single dataset from images.cv - a website offering open-source, labelled image datasets. This [dataset](https://images.cv/dataset/bicycle-image-classification-dataset) contained 705 images of bicycles, bike-related objects, and images that could be labelled as bicycle, such as bicycle kicks and bicycle playing cards. The website provides the ability to download this dataset in a range of sizes, with options for colour. It also provides the option to divide the images into folders for training, validation, and testing. With these features and after some pruning of images I didn't believe to be useful, I was left with 593, greyscaled images at a size of 256px x 256px. Example images can be seen in Figure 6.
 
 ![gray-2WZF8BLTOBMY](https://user-images.githubusercontent.com/33913141/232325511-8c5b96da-0467-4f46-a7d1-f5ee82f54ce9.jpg) &nbsp;&nbsp;&nbsp;
 ![gray-2EVEA5H88OEQ](https://user-images.githubusercontent.com/33913141/232341993-81e1c81e-aca3-4646-a54a-84552117d84b.jpg) &nbsp;&nbsp;&nbsp;
 ![gray-2VARMD3C8MZF](https://user-images.githubusercontent.com/33913141/232342052-bd7e1d77-40b9-400e-a0b6-73148df6c06e.jpg)
 
-Figure 5 - Example Images from Image.cv Dataset
+Figure 6 - Example Images from Image.cv Dataset
 
-The custom images were taken by myself, over the course of two weeks throughout my daily commutes in London. These Images began as 3024px × 4032px coloured photos. In order to process them, I first recoloured them and cropped them into 3024px x 3024px squares. Next, I reduced their resolution to 1024px x 1024px using the [ImageMagick](https://imagemagick.org/index.php) app. Finally, I split each image into 16 separate images to increase the size of the dataset and get a good mix of images that contained bicycles and images with scenery around the bicycles. This process resulted in 848 greyscaled images at a size of 256px x 256px. Figure 6 demonstrates the custom image processing.
+The custom images were taken by myself, over the course of two weeks throughout my daily commutes in London. These Images began as 3024px × 4032px coloured photos. In order to process them, I first recoloured them and cropped them into 3024px x 3024px squares. Next, I reduced their resolution to 1024px x 1024px using the [ImageMagick](https://imagemagick.org/index.php) app. Finally, I split each image into 16 separate images to increase the size of the dataset and get a good mix of images that contained bicycles and images with scenery around the bicycles. This process resulted in 848 greyscaled images at a size of 256px x 256px. Figure 7 demonstrates the custom image processing.
 
 ![tiled-example](https://user-images.githubusercontent.com/33913141/232341346-e35a9ab2-1f36-45c1-84aa-d26142a5de61.png)
 
-Figure 6 - Example Image Processing for Custom Data
+Figure 7 - Example Image Processing for Custom Data
 
 In total, the combined dataset that was used contained 1441 images, similar to those shown in the figures directly above.
 
-In order to label each image, I manually drew bounding boxes around any bicycles using the Edge Impulse platform. See Figure 7 for examples.
+In order to label each image, I manually drew bounding boxes around any bicycles using the Edge Impulse platform. See Figure 8 for examples.
 
 ![label-ex1](https://user-images.githubusercontent.com/33913141/234707499-47352fff-d8ae-479a-a370-168cf782c9f8.png)
 &nbsp;&nbsp;&nbsp;
@@ -62,7 +66,7 @@ In order to label each image, I manually drew bounding boxes around any bicycles
 &nbsp;&nbsp;&nbsp;
 ![label-ex3](https://user-images.githubusercontent.com/33913141/234707555-f20e5f8f-4b67-478e-89be-784cebb60a7c.png)
 
-Figure 7 - Example Image Labelling with Bounding Boxes
+Figure 8 - Example Image Labelling with Bounding Boxes
 
 Decisions regarding the processing of these images are as follows:
 - Greyscaling; The FOMO model used currently only accepts greyscaled images and greyscaling simplifies the alogrithm and reduces computational requirements (Kanan & Cottrell, 2012) by reducing colour variable down to a single number between 0 - 255.
@@ -72,13 +76,14 @@ Decisions regarding the processing of these images are as follows:
 ## Model
 This is a Deep Learning project! What model architecture did you use? Did you try different ones? Why did you choose the ones you did?
 
+For this project, I tested several different models including YOLOv5, FOMO, and MobileNet SSD.
+YOLO vs FOMO vs 
+
 Tip: probably ~200 words and a diagram is usually good to describe your model!
 
 ## Experiments
 What experiments did you run to test your project? What parameters did you change? How did you measure performance? Did you write any scripts to evaluate performance? Did you use any tools to evaluate performance? Do you have graphs of results?
 
-For this project, I tested several different models including YOLOv5, FOMO, and MobileNet SSD.
-YOLO vs FOMO vs 
 ![experiments](https://user-images.githubusercontent.com/33913141/233605076-8015e691-b550-467e-97f8-49312fb2e6e5.png)
 
 Figure x - Chart of Notable Experiments and Results
@@ -101,7 +106,9 @@ Tip: probably ~300 words and remember images and diagrams bring results to life!
 
 ## Bibliography
 
-Moreau, L. (2022) Announcing Fomo (faster objects, more objects), Edge Impulse. Available at: https://www.edgeimpulse.com/blog/announcing-fomo-faster-objects-more-objects#:~:text=FOMO%20can%20be%20thought%20of,all%20of%20a%20similar%20size. (Accessed: April 26, 2023). 
+Moreau, L. (2022) Announcing Fomo (faster objects, more objects), Edge Impulse. Available at: https://www.edgeimpulse.com/blog/announcing-fomo-faster-objects-more-objects#:~:text=FOMO%20can%20be%20thought%20of,all%20of%20a%20similar%20size. (Accessed: April 26, 2023).
+
+Dickson, B. et al. (2022) Fomo is a tinyml neural network for real-time object detection, TechTalks. Available at: https://bdtechtalks.com/2022/04/18/fomo-tinyml-object-detection/ (Accessed: April 26, 2023). 
 
 Kanan, C. and Cottrell, G.W. (2012) Color-to-grayscale: Does the method matter in image recognition?, PLOS ONE. Public Library of Science. Available at: https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0029740#:~:text=The%20main%20reason%20why%20grayscale,algorithm%20and%20reduces%20computational%20requirements. (Accessed: April 26, 2023).
 
