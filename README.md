@@ -20,6 +20,8 @@ This project is the final submission for CASA0018 (Deep Learning for Sensor Netw
   - OV7675 CMOS VGA Camera Module
   - TinyML Shield
   - USB A - Micro USB Cable
+  
+  ![tinyml-kit](https://user-images.githubusercontent.com/33913141/234853153-b601a9f7-b65b-466e-925c-9dcbc4fd51ea.png)
 
 ## License
 This project is licensed under the MIT License.
