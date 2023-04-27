@@ -137,17 +137,19 @@ I deployed my final model - [insert model specifications] - onto an Arduino Nano
 
 Figure 12 - Final Build
 
-xx
-images of edge device and deployment video stream?
-Images of deployment, and detection?
+Photos of the functioning deployment are shown in Figure 13.
 
+Figure 13 - Example Object Detection with Final Build
 
-## To Do
-- research on the changes i made, did the changes fix overfitting? reducing resolution help?
-- add info about edge impulse
+As this project only covers the deep learning aspect of this system, steps were not taken to ensure effective deployment in a real-world scenerio. However, if this were to be done, the following should be taken into consideration:
+- The placement of the device should be such that the bicycle bay it is monitoring is in full view. Steps should be taken to remove obstructions where possible and necessary or place the camera in a location without them.
+- It's important to ensure people are made aware that this kind of monitoring and detection is taking place, so they can make informed decisions about their niometric data. Those deploying must do their due diligence to ensure the rights and privacy of people and their data is properly protected.
+- Vandalism, both purposeful and accidental present concerns for deployments. Steps should be taken to ensure the safety of the camera and system from people and animals.
+- An effective, weatherproof enclosure is necessary to ensure long-term operation of a deployment under various weather conditions.
+
+IMAGES OF DEPLOYMENT AND DETECTION
 
 ## Bibliography
-
 Moreau, L. (2022) Announcing Fomo (faster objects, more objects), Edge Impulse. Available at: https://www.edgeimpulse.com/blog/announcing-fomo-faster-objects-more-objects#:~:text=FOMO%20can%20be%20thought%20of,all%20of%20a%20similar%20size. (Accessed: April 26, 2023).
 
 Dickson, B. et al. (2022) Fomo is a tinyml neural network for real-time object detection, TechTalks. Available at: https://bdtechtalks.com/2022/04/18/fomo-tinyml-object-detection/ (Accessed: April 26, 2023). 
@@ -161,4 +163,4 @@ I, André Bourgeois, confirm that the work presented in this assessment is my ow
 
 André Bourgeois
 
-21/04/2023
+27/04/2023
