@@ -23,7 +23,7 @@ Can a camera deployed near a bicycle bay accurately detect the number of bicycle
 ## Application Overview
 The purpose of this application is to identify bicycles. The image input relies on the edge device's camera - in this case, the OV7675 CMOS VGA Camera Module connected to the Arduino Nano 33 BLE Sense. While images are being captured through a real-time video feed, they are each being processed and split into a grid where the equivalent of image classification is ran across all cells in the grid independently in parallel. (Moreau, 2022) A depiction of this processing stage can be seen in Figure 4. Following this processing, the model searches the image for features similar to those it was trained on - bicycles - and makes a decision as to whether or not there are any bikes in the image. With the FOMO model, an affirmative decision is depicted as a centroid marker on the image, because instead of predictin bounding boxes, FOMO predicts the objects centre (Dickson et al., 2022). An example of an image with a bounding box next to the same image with a centroid marker can be seen in Figure 5.
 
-![application-overview](https://user-images.githubusercontent.com/33913141/234854077-d049e68f-f8e9-4e5a-b7c0-1493d452a0cb.png)
+![application-overview](https://user-images.githubusercontent.com/33913141/234854616-a3224072-bd9e-4be5-a6b2-a0d2e7825774.png)
 
 Figure 3 - Application Diagram
 
