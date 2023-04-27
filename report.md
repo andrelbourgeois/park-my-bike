@@ -131,11 +131,11 @@ Upon returning to experimentation on the FOMO models with 96 x 96 resolution ima
 Figure 11 - Graph of Results from Final Experimentation, FOMO MobileNetV2 0.35 and FOMO MobileNetV2 0.1
 
 ### Deployment
-I deployed my final model - [insert model specifications] - onto an Arduin Nano 33 BLE Sense, with an OV7675 CMOS VGA Camera Module as an input device. The system was deployed with the TinyML Sheild included in Arduino's TinyML Kit. The full build can be seen in Figure - x.
+I deployed my final model - [insert model specifications] - onto an Arduino Nano 33 BLE Sense, with an OV7675 CMOS VGA Camera Module as an input device. The system was deployed with the TinyML Sheild included in Arduino's TinyML Kit. The full build can be seen in Figure 12.
 
 ![dep1](https://user-images.githubusercontent.com/33913141/234854412-76a4a325-e05d-4a26-bf13-666e3564640f.png)
 
-Figure x - Final Build
+Figure 12 - Final Build
 
 xx
 images of edge device and deployment video stream?
