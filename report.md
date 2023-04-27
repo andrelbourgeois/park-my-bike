@@ -92,16 +92,16 @@ The methodology used was quite simple, control all but a single variable between
 - Number of Training Cycles (Epochs)
 - Learning Rate (How much the models internal parameters are updated during each step of the training proces)
 
-On both the FOMO 0.35 and FORD 0.1 models, I tested each of 6 different training cycle amounts with 3 different learning rates, and evaluated the models based on their accuracy against the testing data.
+Upon realizing I was only able to deploy a FOMO model from Edge Impulse onto a constrained device, I entered my final rounds of experimentation with FOMO 0.35 and FOMO 0.1. I decided to change my image resolution from 320 x 320 to 96 x 96 as it is the smallest Edge Impulse recommended size for object detection and smaller images will allow for quicker training. The increase in training speed also allowed me to implement far more training cycles than I were previously possible within Edge Impulse's 20 minute training timeframe for standard users. On both the FOMO 0.35 and FOMO 0.1 models, I tested each of 6 different training cycle amounts with 3 different learning rates, and evaluated the models based on their accuracy against the testing data. The results of these tests can be seen in Figures 9 and 10.
 
 IMAGE
 
-Figure 9 - Charts of Tests, FOMO MobileNetV2 0.35 and FOMO MobileNetV2 0.1 
+Figure 9 - Chart of Tests, FOMO MobileNetV2 0.35
 
-talk about first experiments, FOMO and FPN-Lite
-moving from 256x256 images to 320x320 to use FPN-Lite, then moving to FOMO and realizing nothing was being detected, and moving to 96x96 as the Edge Impulse recommended size for FOMO (realization that my model trained a lot quicker with a smaller image size, allowing me to run more epochs.
+IMAGE
 
-create large experiments chart, maybe graph things on excel?
+Figure 10 - Chart of Tests, FOMO MobileNetV2 0.1 
+
 
 ## Results and Observations
 Synthesis the main results and observations you made from building the project. Did it work perfectly? Why not? What worked and what didn't? Why? What would you do next if you had more time?
