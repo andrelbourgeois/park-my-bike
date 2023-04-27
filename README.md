@@ -32,7 +32,7 @@ This project is licensed under the MIT License.
 
 ## FAQ
 Q: How accurate is the model?
-A: The model has an accuracy of [accuracy] while under ideal conditions - good lighting, angle, etc.
+A: The model has an accuracy of ~60% while under ideal conditions - good lighting, angle, etc.
 
 Q: Can the model detect other objects besides bicycles?
 A: The model was trained specifically to detect bicycles and will not be accurate at identifying other objects.
