@@ -79,12 +79,21 @@ In this project, I tested 3 model architectures which represented a selection of
 - MobileNetV2 SSD FPN-Lite 320x320 (referred to as FPN-Lite)
 - YOLOv5 (referred to as YOLO)
 
-During my initial round of testing, I spent most of my time testing the FOMO 0.35 and FPN-Lite models as those gave the best results during my first few comparisons between the models. The FPN-Lite model even going on to achieve the highest accuracy throughout all of my experimentation (84.19%). However, I soon realized that in order to deploy onto a constrained device such as the Arduino Nano 33 BLE Sense, the only model I could deploy from Edge Impulse was one FOMO model. Due to this, I conducted the further round of testing with the FOMO 0.35 and FOMO 0.1 models. Due to the inability of deployment with the other models, I've omitted their results from this report and its diagrams.
+During my initial round of testing, I spent most of my time testing the FOMO 0.35 and FPN-Lite models as those gave the best results during my first few comparisons between the models. The FPN-Lite model even going on to achieve the highest accuracy throughout all of my experimentation (84.19%).
 
-Tip: probably ~200 words and a diagram is usually good to describe your model!
+I soon realized, however, that in order to deploy onto a constrained device such as the Arduino Nano 33 BLE Sense, the only model I could deploy from Edge Impulse was one FOMO model. Due to this, I conducted the further round of testing with the FORD 0.35 and FORD 0.1 models. Due to the inability of deployment with the other models, I've omitted some of their experimentation and results from this report and its diagrams
 
 ## Experiments
 What experiments did you run to test your project? What parameters did you change? How did you measure performance? Did you write any scripts to evaluate performance? Did you use any tools to evaluate performance? Do you have graphs of results?
+
+### Methodology
+The methodology used was quite simple, control all but a single variable between experiments in order to understand the impact of that variable on the testing accuracy of each model. Edge Impulse allows a user to specify the 3 main variables during training
+
+- Model
+- Number of Training Cycles (Epochs)
+- Learning Rate (How much the models internal parameters are updated during each step of the training proces)
+
+On both the FOMO 0.35 and FORD 0.1 models, I tested 6 different training cycle amounts each with 3 different learning rates.
 
 talk about first experiments, FOMO and FPN-Lite
 moving from 256x256 images to 320x320 to use FPN-Lite, then moving to FOMO and realizing nothing was being detected, and moving to 96x96 as the Edge Impulse recommended size for FOMO (realization that my model trained a lot quicker with a smaller image size, allowing me to run more epochs.
