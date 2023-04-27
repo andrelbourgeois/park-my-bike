@@ -6,7 +6,7 @@ Project: [Github Repository](https://github.com/andrelbourgeois/park-my-bike) an
 ## Introduction
 This project details a study undertaken to understand whether a camera placed at a bicycle bay could be used to remotely inform cyclists of available parking spaces at that bicycle bay. In order to accomplish this, a deep learning model was developed and trained to detect bicycles using [Edge Impulse](https://www.edgeimpulse.com/). The idea being, that if the number of bicycles can be accurately obtained at a specific bicycle bay and there is previous knowledge regarding the number of parking spaces at that bicycle bay, then the difference between these numbers is the number of available parking spaces. This number can then be pushed - along with the device's location - to a popular mapping application for public use. The aim of this project, however, is not the design of this entire system, but instead the design and deployment of this system’s deep learning capability. Figure 1 provides a more tangible idea of what the whole system might look like in practice.
 
-![park-my-bike-diagram](https://user-images.githubusercontent.com/33913141/232341366-51ec127c-757a-477a-b7ca-77f8858b443d.png)
+![park-my-bike-diagram](https://user-images.githubusercontent.com/33913141/234854034-9085e4f7-a9dc-4307-a0bf-62e0e6781c6d.png)
 
 Figure 1 - Example of Park My Bike Deployment
 
@@ -23,7 +23,7 @@ Can a camera deployed near a bicycle bay accurately detect the number of bicycle
 ## Application Overview
 The purpose of this application is to identify bicycles. The image input relies on the edge device's camera - in this case, the OV7675 CMOS VGA Camera Module connected to the Arduino Nano 33 BLE Sense. While images are being captured through a real-time video feed, they are each being processed and split into a grid where the equivalent of image classification is ran across all cells in the grid independently in parallel. (Moreau, 2022) A depiction of this processing stage can be seen in Figure 4. Following this processing, the model searches the image for features similar to those it was trained on - bicycles - and makes a decision as to whether or not there are any bikes in the image. With the FOMO model, an affirmative decision is depicted as a centroid marker on the image, because instead of predictin bounding boxes, FOMO predicts the objects centre (Dickson et al., 2022). An example of an image with a bounding box next to the same image with a centroid marker can be seen in Figure 5.
 
-![application-overview](https://user-images.githubusercontent.com/33913141/234813376-75a8317c-761b-47fe-8f35-5dee9816ac8c.png)
+![application-overview](https://user-images.githubusercontent.com/33913141/234854077-d049e68f-f8e9-4e5a-b7c0-1493d452a0cb.png)
 
 Figure 3 - Application Diagram
 
@@ -31,7 +31,7 @@ Figure 3 - Application Diagram
 
 Figure 4 - Example of FOMO Image Processing; 320x320 Image Split Into a 40x40 Grid (Moreau, 2022)
 
-![box-vs-cent](https://user-images.githubusercontent.com/33913141/234717829-0de49c8a-d4c6-4827-9785-05001ed3d35e.png)
+![box-vs-cent](https://user-images.githubusercontent.com/33913141/234854130-cdd1e873-9885-448d-8825-4fe6b0b2bfcb.png)
 
 Figure 5 - Example of FOMO's Centroid Marker
 
@@ -128,8 +128,9 @@ Figure x - Graph of Results from Final Experimentation, FOMO MobileNetV2 0.35 an
 ### Deployment
 I deployed my final model - [insert model specifications] - onto an Arduin Nano 33 BLE Sense, with an OV7675 CMOS VGA Camera Module as an input device. The system was deployed with the TinyML Sheild included in Arduino's TinyML Kit. The full build can be seen in Figure - x.
 
-![dep1](https://user-images.githubusercontent.com/33913141/234841613-2f8695a3-0d27-4e61-a805-61bbf8b46f59.png)
-Figure x - Final Deployment
+![dep1](https://user-images.githubusercontent.com/33913141/234854412-76a4a325-e05d-4a26-bf13-666e3564640f.png)
+
+Figure x - Final Build
 
 xx
 images of edge device and deployment video stream?
