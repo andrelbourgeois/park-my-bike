@@ -98,11 +98,11 @@ Upon realizing I was only able to deploy a FOMO model from Edge Impulse onto a c
 
 On both the FOMO 0.35 and FOMO 0.1 models, I tested each of 6 different training cycle amounts with 3 different learning rates, and evaluated the models based on their accuracy against the testing data. All testing was conducted with a confidence threshold of 0.5. The results of these tests can be seen in Figures 9 and 10.
 
-IMAGE
+![exp-0 35](https://user-images.githubusercontent.com/33913141/234897965-c46945d8-e943-4916-99b6-bc48262ca28f.png)
 
 Figure 9 - Chart of Tests, FOMO MobileNetV2 0.35
 
-IMAGE
+![exp-0 1](https://user-images.githubusercontent.com/33913141/234898164-ca483e69-ee9c-4b7d-a244-b6f635030340.png)
 
 Figure 10 - Chart of Tests, FOMO MobileNetV2 0.1 
 
@@ -127,23 +127,23 @@ After switching from FOMO to FPN-Lite, there was a huge improvement in the accur
 
 Figure 10 - Highlights of Initial Experimentation, FOMO MobileNetV2 0.35 and MobileNetV2 SSD FPN-Lite 320x320
 
-Upon returning to experimentation on the FOMO models with 96 x 96 resolution images. There was also significant improvement in my model's accuracy - as even the lowest scoring test - 25.69% - was higher than very first tests, and the highest scores were much closer to that of the FPN-Lite model, even at a much smaller model size. I believe this was due to an improvement in the speed of training which allowed me to run more epochs. A full graph of these results is show in Figure 11.
-
-Figure 11 - Graph of Results from Final Experimentation, FOMO MobileNetV2 0.35 and FOMO MobileNetV2 0.1
+Upon returning to experimentation on the FOMO models with 96 x 96 resolution images. There was also significant improvement in my model's accuracy - as even the lowest scoring test - 25.69% - was higher than very first tests, and the highest scores were much closer to that of the FPN-Lite model, even at a much smaller model size. I believe this was due to an improvement in the speed of training which allowed me to run more epochs. Full results can be seen under the Experimentation section in Figures 9 and 10.
 
 One key observation given this data is the negative correlation between training cycles and learning rates as they relate to model accuracy. Typically, a smaller number of training cycles benefits from a greater learning rate, and conversely a larger number of training cycles benefits from a less learning rate. I believe this is due to under training when the number of training cycles and learning rate are both low, and over training when they are both high. Therefore, keeping a combination of low and high between these variables yeilded the best results overall.
 
+There was also interesting repetition between the higher training cycle tests for the FOMO MobileNetV2 0.1 model. As depicted in Figure 10, the tests for 40, 50, and 60 training cycles on 0.01 and 0.001 learning rates generated the exact same results. Given more time I would conduct more tests to determine why this is the case.
+
 ### Deployment
-I deployed my final model - [insert model specifications] - onto an Arduino Nano 33 BLE Sense, with an OV7675 CMOS VGA Camera Module as an input device. The system was deployed with the TinyML Sheild included in Arduino's TinyML Kit. The full build can be seen in Figure 12.
+I deployed my final model - FOMO MobileNetV2 0.35 as depicted in the final test of Fiure 9, with 60 training cycles and a learning rate of 0.0001 - onto an Arduino Nano 33 BLE Sense, with an OV7675 CMOS VGA Camera Module as an input device. The system was deployed with the TinyML Sheild included in Arduino's TinyML Kit. The full build can be seen in Figure 11.
 
 ![dep1](https://user-images.githubusercontent.com/33913141/234854412-76a4a325-e05d-4a26-bf13-666e3564640f.png)
 
-Figure 12 - Final Build
+Figure 11 - Final Build
 
-Photos of the functioning deployment are shown in Figure 13.
+Photos of the functioning deployment are shown in Figure 12.
 
 
-Figure 13 - Example Object Detection with Final Build
+Figure 12 - Example Object Detection with Final Build
 
 As this project only covers the deep learning aspect of this system, steps were not taken to ensure effective deployment in a real-world scenerio. However, if this were to be done, the following should be taken into consideration:
 - The placement of the device should be such that the bicycle bay it is monitoring is in full view. Steps should be taken to remove obstructions where possible and necessary or place the camera in a location without them.
