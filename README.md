@@ -7,7 +7,9 @@ This project is the final submission for CASA0018 (Deep Learning for Sensor Netw
 
 ## Project Directory
 - My final report can be found in [report.md](https://github.com/andrelbourgeois/park-my-bike/blob/main/report.md)
-- A project demonstration can be found at this [link]()
+- The data used in this project along with labels can be found in the folder [raw-data](https://github.com/andrelbourgeois/park-my-bike/tree/main/raw-data)
+  - This folder also contains instructions on how to import this data into your own Edge Impulse project
+  - The data is split into training and testing folders because Edge Impulse splits the training data into training and validation sets automatically - the ratio between these sets can be changed in advanced training settings on the training screen
 - Licensing information can be found in LICENSE.md
 
 ## Software
