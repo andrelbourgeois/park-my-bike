@@ -106,6 +106,7 @@ IMAGE
 
 Figure 10 - Chart of Tests, FOMO MobileNetV2 0.1 
 
+Throughout my experimentation, I also discovered a major benefit of Edge Impulse, being that you are able to version your models, and test multiple models simulatenously. This allowed me to quickly conduct many tests, changing a single variable between them to see how their results differed.
 
 ## Results and Observations
 
