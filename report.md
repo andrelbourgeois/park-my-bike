@@ -134,16 +134,11 @@ One key observation given this data is the negative correlation between training
 There was also interesting repetition between the higher training cycle tests for the FOMO MobileNetV2 0.1 model. As depicted in Figure 10, the tests for 40, 50, and 60 training cycles on 0.01 and 0.001 learning rates generated the exact same results. Given more time I would conduct more tests to determine why this is the case.
 
 ### Deployment
-I deployed my final model - FOMO MobileNetV2 0.35 as depicted in the final test of Fiure 9, with 60 training cycles and a learning rate of 0.0001 - onto an Arduino Nano 33 BLE Sense, with an OV7675 CMOS VGA Camera Module as an input device. The system was deployed with the TinyML Sheild included in Arduino's TinyML Kit. The full build can be seen in Figure 11.
+I deployed my final model - FOMO MobileNetV2 0.35 as depicted in the final test of Figure 9, with 60 training cycles and a learning rate of 0.0001 - onto an Arduino Nano 33 BLE Sense, with an OV7675 CMOS VGA Camera Module as an input device. The system was deployed with the TinyML Sheild included in Arduino's TinyML Kit. The full build can be seen in Figure 11.
 
 ![dep1](https://user-images.githubusercontent.com/33913141/234854412-76a4a325-e05d-4a26-bf13-666e3564640f.png)
 
 Figure 11 - Final Build
-
-Photos of the functioning deployment are shown in Figure 12.
-
-
-Figure 12 - Example Object Detection with Final Build
 
 As this project only covers the deep learning aspect of this system, steps were not taken to ensure effective deployment in a real-world scenerio. However, if this were to be done, the following should be taken into consideration:
 - The placement of the device should be such that the bicycle bay it is monitoring is in full view. Steps should be taken to remove obstructions where possible and necessary or place the camera in a location without them.
