@@ -81,19 +81,19 @@ In this project, I tested 3 model architectures which represented a selection of
 
 During my initial round of testing, I spent most of my time testing the FOMO 0.35 and FPN-Lite models as those gave the best results during my first few comparisons between the models. The FPN-Lite model even going on to achieve the highest accuracy throughout all of my experimentation (84.19%).
 
-I soon realized, however, that in order to deploy onto a constrained device such as the Arduino Nano 33 BLE Sense, the only model I could deploy from Edge Impulse was one FOMO model. Due to this, I conducted the further round of testing with the FORD 0.35 and FORD 0.1 models. Due to the inability of deployment with the other models, I've omitted some of their experimentation and results from this report and its diagrams
+I soon realized, however, that in order to deploy onto a constrained device such as the Arduino Nano 33 BLE Sense, the only model I could deploy from Edge Impulse was one FOMO model. Due to this, I conducted the further round of testing with the FORD 0.35 and FORD 0.1 models. Due to the inability of deployment with the other models, I've omitted most of their experimentation and results from this report and its diagrams. Highlights from these tests can be see in the Observations and Results section in Figure x.
 
 ## Experiments
 What experiments did you run to test your project? What parameters did you change? How did you measure performance? Did you write any scripts to evaluate performance? Did you use any tools to evaluate performance? Do you have graphs of results?
 
 ### Methodology
-The methodology used was quite simple, control all but a single variable between experiments in order to understand the impact of that variable on the testing accuracy of each model. Edge Impulse allows a user to specify the 3 main variables during training
+The methodology used was quite simple, control all but a single variable between experiments in order to understand the impact of that variable on the testing accuracy of each model. Edge Impulse allows a user to specify 3 main variables during training:
 
 - Model
 - Number of Training Cycles (Epochs)
 - Learning Rate (How much the models internal parameters are updated during each step of the training proces)
 
-On both the FOMO 0.35 and FORD 0.1 models, I tested 6 different training cycle amounts each with 3 different learning rates.
+On both the FOMO 0.35 and FORD 0.1 models, I tested each of 6 different training cycle amounts with 3 different learning rates.
 
 talk about first experiments, FOMO and FPN-Lite
 moving from 256x256 images to 320x320 to use FPN-Lite, then moving to FOMO and realizing nothing was being detected, and moving to 96x96 as the Edge Impulse recommended size for FOMO (realization that my model trained a lot quicker with a smaller image size, allowing me to run more epochs.
@@ -118,11 +118,15 @@ More images collected from different angles, times of day, weather conditions, a
 Much of the image processing I conducted prior to uploading my images to Edge Impulse can be handled by the platform itself, such as greyscaling and cropping or resizing images. Knowing this will drastically improve my future image processing practices. Additionally, this ability allowed me to quickly alter image characteristics between experiments, allowing me to quckly test 256x256, 320x320, and 96x96 resolutions without needing to reupload any data.
 
 ### Model & Experimentation
-Throughout the majority of my test, the training accuracy of my model was 23.72%. I quickly realized that this number correlated exactly with the percentage of testing images that did not contain any bicycles. Therefore, for the majority of test, my model was unable to detect any bicycles.
+Throughout the majority of my initial tests, the training accuracy of my model was 23.72%. I quickly realized that this number correlated exactly with the percentage of testing images that did not contain any bicycles. Therefore, for the majority of these tests, my model was unable to detect any bicycles.
 
-After switching from FOMO to FPN-Lite, there was a huge improvement in the accuracy of bicycle detection. I assume this was due to the sheer size of the FPN-Lite model, which consequently also made it unsuitable for deployment onto an Arduino Nano 33 BLE Sense.
+After switching from FOMO to FPN-Lite, there was a huge improvement in the accuracy of bicycle detection. I assume this was due to the sheer size of the FPN-Lite model, which consequently also made it unsuitable for deployment onto an Arduino Nano 33 BLE Sense. Some Highlights of these tests can be seen in Figure x.
 
-Upon returning to the FOMO model, and conducting some research, I decided to resize my images in my impulse design to 96x96 as this is another size recommended by Edge Impulse for FOMO. This also resulted in a significant improvement in my model's accuracy. I believe this was due decreased resolution of the image making the model's learning more widely applicable to other images, as well as an improvement in the speed of training which allowed me to run more epochs.
+![exp1](https://user-images.githubusercontent.com/33913141/234832560-f120b9e6-9baa-45cf-84e9-aef10d4f779a.png)
+
+Figure x - Highlights of Initial Experimentation, FOMO MobileNetV2 0.35 and MobileNetV2 SSD FPN-Lite 320x320
+
+Upon returning to the FOMO model, and conducting some research, I decided to resize my images in my impulse design to 96x96 as this is another size recommended by Edge Impulse for FOMO. This also resulted in a significant improvement in my model's accuracy. I believe this was due to an improvement in the speed of training which allowed me to run more epochs.
 
 ### Deployment
 xx
