@@ -23,7 +23,7 @@ Can a camera deployed near a bicycle bay accurately detect the number of bicycle
 ## Application Overview
 The purpose of this application is to identify bicycles. The image input relies on the edge device's camera - in this case, the OV7675 CMOS VGA Camera Module connected to the Arduino Nano 33 BLE Sense. While images are being captured through a real-time video feed, they are each being processed and split into a grid where the equivalent of image classification is ran across all cells in the grid independently in parallel. (Moreau, 2022) A depiction of this processing stage can be seen in Figure 4. Following this processing, the model searches the image for features similar to those it was trained on - bicycles - and makes a decision as to whether or not there are any bikes in the image. With the FOMO model, an affirmative decision is depicted as a centroid marker on the image, because instead of predictin bounding boxes, FOMO predicts the objects centre (Dickson et al., 2022). An example of an image with a bounding box next to the same image with a centroid marker can be seen in Figure 5.
 
-![application-overview](https://user-images.githubusercontent.com/33913141/234813062-8b0bf792-70ae-4de6-a2a3-b7f37a418181.png)
+![application-overview](https://user-images.githubusercontent.com/33913141/234813376-75a8317c-761b-47fe-8f35-5dee9816ac8c.png)
 
 Figure 3 - Application Diagram
 
@@ -52,6 +52,11 @@ The custom images were taken by myself, over the course of two weeks throughout 
 
 Figure 7 - Example Image Processing for Custom Data
 
+Decisions regarding the processing of these images are as follows:
+- Greyscaling; The FOMO model used currently only accepts greyscaled images and greyscaling simplifies the alogrithm and reduces computational requirements (Kanan & Cottrell, 2012) by reducing colour variable down to a single number between 0 - 255.
+- Squaring; The FOMO model used currently only accepts square images and it was a common standard dimension within all of the research I conducted as many model topologies require square input images (Isahit, 2022). 
+- Tiling; Allowed me to artificially increase the size of the dataset by augmenting these images.
+
 In total, the combined dataset that was used contained 1441 images, similar to those shown in the figures directly above.
 
 In order to label each image, I manually drew bounding boxes around any bicycles using the Edge Impulse platform. See Figure 8 for examples.
@@ -64,21 +69,17 @@ In order to label each image, I manually drew bounding boxes around any bicycles
 
 Figure 8 - Example Image Labelling with Bounding Boxes
 
-Decisions regarding the processing of these images are as follows:
-- Greyscaling; The FOMO model used currently only accepts greyscaled images and greyscaling simplifies the alogrithm and reduces computational requirements (Kanan & Cottrell, 2012) by reducing colour variable down to a single number between 0 - 255.
-- Squaring; The FOMO model used currently only accepts square images and it was a common standard dimension within all of the research I conducted as many model topologies require square input images (Isahit, 2022). 
-- Tiling; Allowed me to artificially increase the size of the dataset by augmenting these images.
-
 ## Model
 This is a Deep Learning project! What model architecture did you use? Did you try different ones? Why did you choose the ones you did?
 
 In this project, I tested 3 model architectures which represented a selection of all model architectures on the Edge Impulse platform.
 
-- FOMO MobileNetV2 0.35 (referred to as FOMO)
+- FOMO MobileNetV2 0.1 (referred to as FOMO 0.1)
+- FOMO MobileNetV2 0.35 (referred to as FOMO 0.35)
 - MobileNetV2 SSD FPN-Lite 320x320 (referred to as FPN-Lite)
 - YOLOv5 (referred to as YOLO)
 
-I spent most of my time testing the FOMO and FPN-Lite models as those gave the best results during my first few tests. The FPN-Lite model even going on to achieve the highest accuracy throughout all of my experimentation (84.19%). However, I soon realized that in order to deploy onto a constrained device such as the Arduino Nano 33 BLE Sense, the only model I could deploy from Edge Impulse was one built with FOMO. Due to this, I conducted the remainder of my test with FOMO
+During my initial round of testing, I spent most of my time testing the FOMO 0.35 and FPN-Lite models as those gave the best results during my first few comparisons between the models. The FPN-Lite model even going on to achieve the highest accuracy throughout all of my experimentation (84.19%). However, I soon realized that in order to deploy onto a constrained device such as the Arduino Nano 33 BLE Sense, the only model I could deploy from Edge Impulse was one FOMO model. Due to this, I conducted the further round of testing with the FOMO 0.35 and FOMO 0.1 models. Due to the inability of deployment with the other models, I've omitted their results from this report and its diagrams.
 
 Tip: probably ~200 words and a diagram is usually good to describe your model!
 
