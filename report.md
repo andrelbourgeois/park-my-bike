@@ -130,6 +130,8 @@ Upon returning to experimentation on the FOMO models with 96 x 96 resolution ima
 
 Figure 11 - Graph of Results from Final Experimentation, FOMO MobileNetV2 0.35 and FOMO MobileNetV2 0.1
 
+One key observation given this data is the negative correlation between training cycles and learning rates as they relate to model accuracy. Typically, a smaller number of training cycles benefits from a greater learning rate, and conversely a larger number of training cycles benefits from a less learning rate. I believe this is due to under training when the number of training cycles and learning rate are both low, and over training when they are both high. Therefore, keeping a combination of low and high between these variables yeilded the best results overall.
+
 ### Deployment
 I deployed my final model - [insert model specifications] - onto an Arduino Nano 33 BLE Sense, with an OV7675 CMOS VGA Camera Module as an input device. The system was deployed with the TinyML Sheild included in Arduino's TinyML Kit. The full build can be seen in Figure 12.
 
@@ -139,6 +141,7 @@ Figure 12 - Final Build
 
 Photos of the functioning deployment are shown in Figure 13.
 
+
 Figure 13 - Example Object Detection with Final Build
 
 As this project only covers the deep learning aspect of this system, steps were not taken to ensure effective deployment in a real-world scenerio. However, if this were to be done, the following should be taken into consideration:
@@ -146,8 +149,6 @@ As this project only covers the deep learning aspect of this system, steps were 
 - It's important to ensure people are made aware that this kind of monitoring and detection is taking place, so they can make informed decisions about their niometric data. Those deploying must do their due diligence to ensure the rights and privacy of people and their data is properly protected.
 - Vandalism, both purposeful and accidental present concerns for deployments. Steps should be taken to ensure the safety of the camera and system from people and animals.
 - An effective, weatherproof enclosure is necessary to ensure long-term operation of a deployment under various weather conditions.
-
-IMAGES OF DEPLOYMENT AND DETECTION
 
 ## Bibliography
 Moreau, L. (2022) Announcing Fomo (faster objects, more objects), Edge Impulse. Available at: https://www.edgeimpulse.com/blog/announcing-fomo-faster-objects-more-objects#:~:text=FOMO%20can%20be%20thought%20of,all%20of%20a%20similar%20size. (Accessed: April 26, 2023).
