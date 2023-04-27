@@ -72,7 +72,7 @@ Figure 8 - Example Image Labelling with Bounding Boxes
 ## Model
 This is a Deep Learning project! What model architecture did you use? Did you try different ones? Why did you choose the ones you did?
 
-In this project, I tested 3 model architectures which represented a selection of all model architectures on the Edge Impulse platform.
+In this project, I tested 4 model architectures which represented a selection of all model architectures available on the Edge Impulse platform.
 
 - FOMO MobileNetV2 0.1 (referred to as FOMO 0.1)
 - FOMO MobileNetV2 0.35 (referred to as FOMO 0.35)
@@ -81,7 +81,11 @@ In this project, I tested 3 model architectures which represented a selection of
 
 During my initial rounds of testing, I spent most of my time testing the FOMO 0.35 and FPN-Lite models as those gave the best results during my first few comparisons between models. The FPN-Lite model even achieved the highest testing accuracy throughout all of my experimentation (84.19%).
 
-I soon realized, however, that in order to deploy onto a constrained device such as the Arduino Nano 33 BLE Sense, the only model I could deploy from Edge Impulse was FOMO-based model. Due to this, I conducted further rounds of testing with the FOMO 0.35 and FOMO 0.1 models. Due to the inability of deployment with the other models, I've omitted most of their experimentation and results from this report and its diagrams, although highlights from these tests can be see in the Observations & Results section under Model & Experimentation in Figure x.
+I soon realized, however, that in order to deploy onto a constrained device such as the Arduino Nano 33 BLE Sense, the only model I could deploy from Edge Impulse was FOMO-based model. Due to this, I conducted further rounds of testing with only the FOMO 0.35 and FOMO 0.1 models. Due to the inability of deployment with the other models, I've omitted most of their experimentation and results from this report and its diagrams, although highlights from these tests can be see in the Observations & Results section under Model & Experimentation in Figure x.
+
+Some pros and cons of FOMO include:
+- 30x faster than MobileNet SSD (FPN-Lite) and can run in <200K of RAM (Moreau, 2022)
+- Performs much better on a larger number of small objects than YOLOv5 (YOLO) or MobileNet SSD (FPN-Lite) (Moreau, 2022)
 
 ## Experiments
 
@@ -92,7 +96,9 @@ The methodology used was quite simple, control all but a single variable between
 - Number of Training Cycles (Epochs)
 - Learning Rate (How much the models internal parameters are updated during each step of the training proces)
 
-Upon realizing I was only able to deploy a FOMO model from Edge Impulse onto a constrained device, I entered my final rounds of experimentation with FOMO 0.35 and FOMO 0.1. I decided to change my image resolution from 320 x 320 to 96 x 96 as it is the smallest Edge Impulse recommended size for object detection and smaller images will allow for quicker training. The increase in training speed also allowed me to implement far more training cycles than I were previously possible within Edge Impulse's 20 minute training timeframe for standard users. On both the FOMO 0.35 and FOMO 0.1 models, I tested each of 6 different training cycle amounts with 3 different learning rates, and evaluated the models based on their accuracy against the testing data. The results of these tests can be seen in Figures 9 and 10.
+Upon realizing I was only able to deploy a FOMO model from Edge Impulse onto a constrained device, I entered my final rounds of experimentation with FOMO 0.35 and FOMO 0.1. I decided to change my image resolution from 320 x 320 to 96 x 96 as it is the smallest Edge Impulse recommended size for object detection and smaller images will allow for quicker training. The increase in training speed also allowed me to implement far more training cycles than I were previously possible within Edge Impulse's 20 minute training timeframe for standard users. A final advantage of the change in image size is a decrease in overall model size for deployment; however, due to the already small size, this was not a driving factor in the decision. 
+
+On both the FOMO 0.35 and FOMO 0.1 models, I tested each of 6 different training cycle amounts with 3 different learning rates, and evaluated the models based on their accuracy against the testing data. The results of these tests can be seen in Figures 9 and 10.
 
 IMAGE
 
