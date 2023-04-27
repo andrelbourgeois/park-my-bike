@@ -83,9 +83,11 @@ During my initial rounds of testing, I spent most of my time testing the FOMO 0.
 
 I soon realized, however, that in order to deploy onto a constrained device such as the Arduino Nano 33 BLE Sense, the only model I could deploy from Edge Impulse was FOMO-based model. Due to this, I conducted further rounds of testing with only the FOMO 0.35 and FOMO 0.1 models. Due to the inability of deployment with the other models, I've omitted most of their experimentation and results from this report and its diagrams, although highlights from these tests can be see in the Observations & Results section under Model & Experimentation in Figure x.
 
-Some pros and cons of FOMO include:
+Some advantages and limitations of FOMO include:
 - 30x faster than MobileNet SSD (FPN-Lite) and can run in <200K of RAM (Moreau, 2022)
 - Performs much better on a larger number of small objects than YOLOv5 (YOLO) or MobileNet SSD (FPN-Lite) (Moreau, 2022)
+- Works best if objects are all of similar size
+- Objects shouldn't be too close together
 
 ## Experiments
 
