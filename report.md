@@ -118,17 +118,17 @@ Much of the image processing I conducted prior to uploading my images to Edge Im
 Due to FOMO's preference towards objects of similar size, my accuracy may have been impacted by the varying sizes of bounding boxes used to label images throughout my dataset. Given more time I would conduct further tests in order to determine if this was the case.
 
 ### Model & Experimentation
-Throughout the majority of my initial tests, the training accuracy of my model was 23.72%. I quickly realized that this number correlated exactly with the percentage of testing images that did not contain any bicycles. Therefore, for the majority of these tests, my model was unable to detect any bicycles.
+Throughout the majority of my initial tests, the training accuracy of my model was 23.72%. I quickly realized that this number correlated exactly with the percentage of testing images that did not contain any bicycles in my testing data. Therefore, for the majority of these tests, my model was unable to detect any bicycles.
 
-After switching from FOMO to FPN-Lite, there was a huge improvement in the accuracy of bicycle detection. I assume this was due to the sheer size of the FPN-Lite model, which consequently also made it unsuitable for deployment onto an Arduino Nano 33 BLE Sense. Some Highlights of these tests can be seen in Figure x.
+After switching from FOMO to FPN-Lite, there was a huge improvement in the accuracy of bicycle detection. I assume this was due to the sheer size of the FPN-Lite model, which consequently also made it unsuitable for deployment onto an Arduino Nano 33 BLE Sense. Some Highlights of these tests can be seen in Figure 10.
 
 ![exp1](https://user-images.githubusercontent.com/33913141/234832560-f120b9e6-9baa-45cf-84e9-aef10d4f779a.png)
 
-Figure x - Highlights of Initial Experimentation, FOMO MobileNetV2 0.35 and MobileNetV2 SSD FPN-Lite 320x320
+Figure 10 - Highlights of Initial Experimentation, FOMO MobileNetV2 0.35 and MobileNetV2 SSD FPN-Lite 320x320
 
-Upon returning to the FOMO model, and conducting some research, I decided to resize my images in my impulse design to 96x96 as this is another size recommended by Edge Impulse for FOMO. This also resulted in a significant improvement in my model's accuracy. I believe this was due to an improvement in the speed of training which allowed me to run more epochs.
+Upon returning to experimentation on the FOMO models with 96 x 96 resolution images. There was also significant improvement in my model's accuracy - as even the lowest scoring test - 25.69% - was higher than very first tests, and the highest scores were much closer to that of the FPN-Lite model, even at a much smaller model size. I believe this was due to an improvement in the speed of training which allowed me to run more epochs. A full graph of these results is show in Figure 11.
 
-Figure x - Graph of Results from Final Experimentation, FOMO MobileNetV2 0.35 and FOMO MobileNetV2 0.1
+Figure 11 - Graph of Results from Final Experimentation, FOMO MobileNetV2 0.35 and FOMO MobileNetV2 0.1
 
 ### Deployment
 I deployed my final model - [insert model specifications] - onto an Arduin Nano 33 BLE Sense, with an OV7675 CMOS VGA Camera Module as an input device. The system was deployed with the TinyML Sheild included in Arduino's TinyML Kit. The full build can be seen in Figure - x.
