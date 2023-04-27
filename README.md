@@ -1,21 +1,25 @@
 # PARK-MY-BIKE
-This repository contains an object detection model that can be deployed to an edge device to identify bicycles at bicycle bays. The model was originally based on the MobileNetV2 SSD FPN-Lite 320x320 architecture, however, this was later changed to the MobileNetV2 0.35 architecture due to memory constraints resulting in the inability of deploying the original model onto an Arduino Nano 33 BLE Sense. The MobileNetV2 SSD FPN-Lite 320x320 works wonderfully on a smart phone, however, smart phone deployment does not fit the needs of this project. This model was trained on a combined dataset of open-source images [found here](https://images.cv/dataset/bicycle-image-classification-dataset) and custom images sourced from around London, UK.
+This repository contains an object detection model that can be deployed to an edge device to identify bicycles at bicycle bays. The model was originally based on the MobileNetV2 SSD FPN-Lite 320x320 model architecture, however, this was later changed to the FOMO MobileNetV2 0.35 model architecture due to memory constraints resulting in the inability of deploying the original model onto an Arduino Nano 33 BLE Sense. The MobileNetV2 SSD FPN-Lite 320x320 works wonderfully on a smart phone, however, smart phone deployment does not fit the needs of this project.
+
+The experimentation and training for this project were conducted with a combined dataset of open-source images [found here](https://images.cv/dataset/bicycle-image-classification-dataset) and custom images sourced from around London, UK.
 
 This project is the final submission for CASA0018 (Deep Learning for Sensor Networks) in the MSc in Connected Environments at UCL's Bartlett Centre for Advanced Spatial Analysis.
 
 ## Project Directory
-- My final report can be found in the folder titled report.
-- The code for this project can be found in the doler titled code.
-- A project demonstration can be found at this link.
-- Licensing information can be found in LICENSE.md.
+- My final report can be found in [report.md](https://github.com/andrelbourgeois/park-my-bike/blob/main/report.md)
+- A project demonstration can be found at this [link]()
+- Licensing information can be found in LICENSE.md
 
 ## Software
 - [Edge Impulse](https://edgeimpulse.com/)
 - [ImageMagick](https://imagemagick.org/index.php)
 
 ## Hardware
-- Arduino Nano 33 BLE Sense
-- OV7675 CMOS VGA Camera Module
+- Arduino TinyML Kit
+  - Arduino Nano 33 BLE Sense
+  - OV7675 CMOS VGA Camera Module
+  - TinyML Shield
+  - USB A - Micro USB Cable
 
 ## Installation
 x
