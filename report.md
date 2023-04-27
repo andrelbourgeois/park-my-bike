@@ -98,15 +98,7 @@ On both the FOMO 0.35 and FORD 0.1 models, I tested each of 6 different training
 talk about first experiments, FOMO and FPN-Lite
 moving from 256x256 images to 320x320 to use FPN-Lite, then moving to FOMO and realizing nothing was being detected, and moving to 96x96 as the Edge Impulse recommended size for FOMO (realization that my model trained a lot quicker with a smaller image size, allowing me to run more epochs.
 
-cerate large experiemnts chart, maybe graph things on excel?
-
-![experiments](https://user-images.githubusercontent.com/33913141/233605076-8015e691-b550-467e-97f8-49312fb2e6e5.png)
-
-Figure x - Chart of Notable Experiments and Results
-
-i realized a lot of the processing could be done on edge impulse, so i didn't have to reporcess my images.
-
-Tip: probably ~300 words and graphs and tables are usually good to convey your results!
+create large experiments chart, maybe graph things on excel?
 
 ## Results and Observations
 Synthesis the main results and observations you made from building the project. Did it work perfectly? Why not? What worked and what didn't? Why? What would you do next if you had more time?
@@ -128,13 +120,18 @@ Figure x - Highlights of Initial Experimentation, FOMO MobileNetV2 0.35 and Mobi
 
 Upon returning to the FOMO model, and conducting some research, I decided to resize my images in my impulse design to 96x96 as this is another size recommended by Edge Impulse for FOMO. This also resulted in a significant improvement in my model's accuracy. I believe this was due to an improvement in the speed of training which allowed me to run more epochs.
 
+Figure x - Graph of Results from Final Experimentation, FOMO MobileNetV2 0.35 and FOMO MobileNetV2 0.1
+
 ### Deployment
+I deployed my final model - [insert model specifications] - onto an Arduin Nano 33 BLE Sense, with an OV7675 CMOS VGA Camera Module as an input device. The system was deployed with the TinyML Sheild included in Arduino's TinyML Kit. The full build can be seen in Figure - x.
+
+![dep1](https://user-images.githubusercontent.com/33913141/234841613-2f8695a3-0d27-4e61-a805-61bbf8b46f59.png)
+Figure x - Final Deployment
+
 xx
 images of edge device and deployment video stream?
-
 Images of deployment, and detection?
 
-Tip: probably ~300 words and remember images and diagrams bring results to life!
 
 ## To Do
 - research on the changes i made, did the changes fix overfitting? reducing resolution help?
