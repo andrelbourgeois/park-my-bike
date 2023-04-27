@@ -98,11 +98,11 @@ Upon realizing I was only able to deploy a FOMO model from Edge Impulse onto a c
 
 On both the FOMO 0.35 and FOMO 0.1 models, I tested each of 6 different training cycle amounts with 3 different learning rates, and evaluated the models based on their accuracy against the testing data. All testing was conducted with a confidence threshold of 0.5. The results of these tests can be seen in Figures 9 and 10.
 
-IMAGE
+![exp-0 35](https://user-images.githubusercontent.com/33913141/234897965-c46945d8-e943-4916-99b6-bc48262ca28f.png)
 
 Figure 9 - Chart of Tests, FOMO MobileNetV2 0.35
 
-IMAGE
+![exp1](https://user-images.githubusercontent.com/33913141/234897999-0d01f3de-71a3-4c8b-aae2-6d2cc668eec8.png)
 
 Figure 10 - Chart of Tests, FOMO MobileNetV2 0.1 
 
