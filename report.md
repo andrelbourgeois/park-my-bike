@@ -110,12 +110,12 @@ Figure 10 - Chart of Tests, FOMO MobileNetV2 0.1
 ## Results and Observations
 
 ### Data Collection
-More images collected from different angles, times of day, weather conditions, and scenery may increase the usability of the application. Images taken from the specific angle in which the camera will be looking at bicycles would be most beneficial.
+More images collected from different angles, times of day, weather conditions, and scenery may increase the usability of the model. Images taken from the specific angle in which a camera will be looking at bicycles at various times would be most beneficial.
 
 ### Image Processing
-Much of the image processing I conducted prior to uploading my images to Edge Impulse can be handled by the platform itself, such as greyscaling and cropping or resizing images. Knowing this will drastically improve my future image processing practices. Additionally, this ability allowed me to quickly alter image characteristics between experiments, allowing me to quckly test 256x256, 320x320, and 96x96 resolutions without needing to reupload any data.
+Much of the image processing I conducted prior to uploading my images to Edge Impulse can be handled by the platform itself, such as greyscaling and cropping or resizing images. Knowing this will drastically improve my future image processing practices. Additionally, this ability allowed me to quickly alter image characteristics between experiments, allowing me to test 256x256, 320x320, and 96x96 resolutions without needing to reupload any data.
 
-Due to FOMO's preference towards objects of similar size, my accuracy may have been impacted by the varying sizes of bounding boxes throughout my dataset. Given more time I would conduct further tests in order to determine if this was the case.
+Due to FOMO's preference towards objects of similar size, my accuracy may have been impacted by the varying sizes of bounding boxes used to label images throughout my dataset. Given more time I would conduct further tests in order to determine if this was the case.
 
 ### Model & Experimentation
 Throughout the majority of my initial tests, the training accuracy of my model was 23.72%. I quickly realized that this number correlated exactly with the percentage of testing images that did not contain any bicycles. Therefore, for the majority of these tests, my model was unable to detect any bicycles.
