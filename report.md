@@ -70,8 +70,6 @@ In order to label each image, I manually drew bounding boxes around any bicycles
 Figure 8 - Example Image Labelling with Bounding Boxes
 
 ## Model
-This is a Deep Learning project! What model architecture did you use? Did you try different ones? Why did you choose the ones you did?
-
 In this project, I tested 4 model architectures which represented a selection of all model architectures available on the Edge Impulse platform.
 
 - FOMO MobileNetV2 0.1 (referred to as FOMO 0.1)
@@ -86,19 +84,17 @@ I soon realized, however, that in order to deploy onto a constrained device such
 Some advantages and limitations of FOMO include:
 - 30x faster than MobileNet SSD (FPN-Lite) and can run in <200K of RAM (Moreau, 2022)
 - Performs much better on a larger number of small objects than YOLOv5 (YOLO) or MobileNet SSD (FPN-Lite) (Moreau, 2022)
-- Works best if objects are all of similar size
-- Objects shouldn't be too close together
+- Works best if objects are all of similar size (Moreau, 2022)
+- Objects shouldn't be too close together (Moreau, 2022)
 
 ## Experiments
-
-### Methodology
 The methodology used was quite simple, control all but a single variable between experiments in order to understand the impact of that variable on the testing accuracy of each model. Edge Impulse allows a user to specify 3 main variables during training:
 
 - Model
-- Number of Training Cycles (Epochs)
-- Learning Rate (How much the models internal parameters are updated during each step of the training proces)
+- Number of Training Cycles (epochs)
+- Learning Rate (how much the models internal parameters are updated during each step of the training proces)
 
-Upon realizing I was only able to deploy a FOMO model from Edge Impulse onto a constrained device, I entered my final rounds of experimentation with FOMO 0.35 and FOMO 0.1. I decided to change my image resolution from 320 x 320 to 96 x 96 as it is the smallest Edge Impulse recommended size for object detection and smaller images will allow for quicker training. The increase in training speed also allowed me to implement far more training cycles than I were previously possible within Edge Impulse's 20 minute training timeframe for standard users. A final advantage of the change in image size is a decrease in overall model size for deployment; however, due to the already small size, this was not a driving factor in the decision. 
+Upon realizing I was only able to deploy a FOMO model from Edge Impulse onto a constrained device, I entered my final rounds of experimentation with FOMO 0.35 and FOMO 0.1. I decided to change my image resolution from 320 x 320 to 96 x 96 as it is the smallest Edge Impulse recommended size for object detection and smaller images will allow for quicker training. The increase in training speed also allowed me to implement far more training cycles than were previously possible within Edge Impulse's 20 minute training timeframe for standard users. A final advantage of the change in image size was a decrease in overall model size for deployment; however, due to the already small size, this was not a driving factor in the decision. 
 
 On both the FOMO 0.35 and FOMO 0.1 models, I tested each of 6 different training cycle amounts with 3 different learning rates, and evaluated the models based on their accuracy against the testing data. The results of these tests can be seen in Figures 9 and 10.
 
@@ -112,13 +108,14 @@ Figure 10 - Chart of Tests, FOMO MobileNetV2 0.1
 
 
 ## Results and Observations
-Synthesis the main results and observations you made from building the project. Did it work perfectly? Why not? What worked and what didn't? Why? What would you do next if you had more time?
 
 ### Data Collection
 More images collected from different angles, times of day, weather conditions, and scenery may increase the usability of the application. Images taken from the specific angle in which the camera will be looking at bicycles would be most beneficial.
 
 ### Image Processing
 Much of the image processing I conducted prior to uploading my images to Edge Impulse can be handled by the platform itself, such as greyscaling and cropping or resizing images. Knowing this will drastically improve my future image processing practices. Additionally, this ability allowed me to quickly alter image characteristics between experiments, allowing me to quckly test 256x256, 320x320, and 96x96 resolutions without needing to reupload any data.
+
+Due to FOMO's preference towards objects of similar size, my accuracy may have been impacted by the varying sizes of bounding boxes throughout my dataset. Given more time I would conduct further tests in order to determine if this was the case.
 
 ### Model & Experimentation
 Throughout the majority of my initial tests, the training accuracy of my model was 23.72%. I quickly realized that this number correlated exactly with the percentage of testing images that did not contain any bicycles. Therefore, for the majority of these tests, my model was unable to detect any bicycles.
