@@ -133,6 +133,8 @@ Figure 11 - Graph of Results from Final Experimentation, FOMO MobileNetV2 0.35 a
 
 One key observation given this data is the negative correlation between training cycles and learning rates as they relate to model accuracy. Typically, a smaller number of training cycles benefits from a greater learning rate, and conversely a larger number of training cycles benefits from a less learning rate. I believe this is due to under training when the number of training cycles and learning rate are both low, and over training when they are both high. Therefore, keeping a combination of low and high between these variables yeilded the best results overall.
 
+There was also interesting repetition between the higher training cycle tests for the FOMO MobileNetV2 0.1 model. As depicted in Figure 10, the tests for 40, 50, and 60 training cycles on 0.01 and 0.001 learning rates generated the exact same results. Given more time I would conduct more tests to determine why this is the case.
+
 ### Deployment
 I deployed my final model - [insert model specifications] - onto an Arduino Nano 33 BLE Sense, with an OV7675 CMOS VGA Camera Module as an input device. The system was deployed with the TinyML Sheild included in Arduino's TinyML Kit. The full build can be seen in Figure 12.
 
