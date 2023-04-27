@@ -96,7 +96,7 @@ The methodology used was quite simple, control all but a single variable between
 
 Upon realizing I was only able to deploy a FOMO model from Edge Impulse onto a constrained device, I entered my final rounds of experimentation with FOMO 0.35 and FOMO 0.1. I decided to change my image resolution from 320 x 320 to 96 x 96 as it is the smallest Edge Impulse recommended size for object detection and smaller images will allow for quicker training. The increase in training speed also allowed me to implement far more training cycles than were previously possible within Edge Impulse's 20 minute training timeframe for standard users. A final advantage of the change in image size was a decrease in overall model size for deployment; however, due to the already small size, this was not a driving factor in the decision. 
 
-On both the FOMO 0.35 and FOMO 0.1 models, I tested each of 6 different training cycle amounts with 3 different learning rates, and evaluated the models based on their accuracy against the testing data. The results of these tests can be seen in Figures 9 and 10.
+On both the FOMO 0.35 and FOMO 0.1 models, I tested each of 6 different training cycle amounts with 3 different learning rates, and evaluated the models based on their accuracy against the testing data. All testing was conducted with a confidence threshold of 0.5. The results of these tests can be seen in Figures 9 and 10.
 
 IMAGE
 
