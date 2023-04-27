@@ -102,7 +102,7 @@ On both the FOMO 0.35 and FOMO 0.1 models, I tested each of 6 different training
 
 Figure 9 - Chart of Tests, FOMO MobileNetV2 0.35
 
-![exp1](https://user-images.githubusercontent.com/33913141/234897999-0d01f3de-71a3-4c8b-aae2-6d2cc668eec8.png)
+![exp-0 1](https://user-images.githubusercontent.com/33913141/234898164-ca483e69-ee9c-4b7d-a244-b6f635030340.png)
 
 Figure 10 - Chart of Tests, FOMO MobileNetV2 0.1 
 
